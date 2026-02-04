@@ -3,66 +3,56 @@ layout: default
 title: Home
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>piotrowsky.dev</title>
-<style>
-  body {
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #FBF7F4;
-    font-family: Arial, sans-serif;
-    color: #1E272E;
-  }
-  .content {
-    text-align: center;
-  }
-  h1 {
-    font-size: 36px;
-    margin-bottom: 10px;
-  }
-  p {
-    font-size: 18px;
-    margin: 0;
-  }
-  .list {
-    align-content: left;
-  }
-  .heading {
-    text-transform: uppercase;
-  }
-</style>
-</head>
-<body>
-  <div class="content">
-    <h1>Portfolio niedostępne</h1>
-    <p>This page is closed</p>
-    <br><br><br><br>
-      <div class="content">
-        <p class="heading">
-          <b>Blog posts</b>
-        </p>
-        <ul>
-          {% for post in site.posts %}
-            <li>
-              <span class="tag is-success is-light">{{ post.date | date: "%B %d, %Y" }}</span>
-              <a href="{{ post.url }}" class="link" style="margin-left: 10px; font-weight: bold;">
-                {{ post.title }}
-              </a>
-              <p>{{ post.description }}</p>
-            </li>
-            <br>
-          {% endfor %}
-        </ul>
-      </div>
-  </div>
-  </div>
-</body>
-</html>
+<section class="section">
+    <div class="container">
+        <div class="columns is-centered">
+            <div class="column is-8-tablet is-6-desktop">
+                
+                <div class="notification is-warning is-light has-text-centered mb-6">
+                    <h1 class="title is-4">Portfolio niedostępne</h1>
+                    <p class="subtitle is-6">This page is closed</p>
+                </div>
+
+                <div class="level is-mobile mb-5">
+                    <div class="level-left">
+                        <div class="level-item">
+                            <p class="title is-5 is-uppercase has-text-grey">
+                                Blog Posts
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content">
+                    {% for post in site.posts %}
+                        <article class="media mb-5">
+                            <div class="media-content">
+                                <div class="content">
+                                    <p class="mb-1">
+                                        <small class="tag is-success is-light mr-2">
+                                            {{ post.date | date: "%B %d, %Y" }}
+                                        </small>
+                                        
+                                        <a href="{{ post.url }}" class="link title is-5" style="text-decoration: none;">
+                                            {{ post.title }}
+                                        </a>
+                                    </p>
+                                    
+                                    <p class="has-text-grey-dark is-size-6 mt-2">
+                                        {{ post.description }}
+                                    </p>
+                                </div>
+                            </div>
+                        </article>
+                        
+                        {% unless forloop.last %}
+                            <hr style="background-color: #eee; height: 1px; margin: 1.5rem 0;">
+                        {% endunless %}
+                        
+                    {% endfor %}
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
