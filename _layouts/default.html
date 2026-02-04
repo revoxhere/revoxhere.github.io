@@ -90,14 +90,18 @@
         <div class="container">
             <div class="column is-vcentered">
                 <div class="column">
-                    <h1 class="title">{{ page.title }}</h1>
+                    {% unless page.url == "/" %}
+                        <h1 class="title">{{ page.title }}</h1>
+                    {% endunless %}
                     
                     <div class="content">
                         {{ content }}
                     </div>
 
                     <br>
-                    <a href="/" class="link">Back to the homepage</a>
+                    {% unless page.url == "/" %}
+                        <a href="/" class="link">Back to the homepage</a>
+                    {% endunless %}
                 </div>
             </div>
         </div>
