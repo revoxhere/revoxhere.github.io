@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Temporarily Unavailable</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FBF7F4;
+    font-family: Arial, sans-serif;
+    color: #1E272E;
+  }
+  .content {
+    text-align: center;
+  }
+  h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+  }
+  p {
+    font-size: 18px;
+    margin: 0;
+  }
+  .list {
+    align-content: left;
+  }
+  .heading {
+    text-transform: uppercase;
+  }
+</style>
+</head>
+<body>
+  <div class="content">
+    <h1>Portfolio niedostępne</h1>
+    <p>This page is closed</p>
+    <br><br><br><br>
+      <div class="content">
+        <p class="heading">
+          <b>Blog posts</b>
+        </p>
+        <ul>
+          {% for post in site.posts %}
+            <li>
+              <span class="tag is-success is-light">{{ post.date | date: "%B %d, %Y" }}</span>
+              <a href="{{ post.url }}" class="link" style="margin-left: 10px; font-weight: bold;">
+                {{ post.title }}
+              </a>
+              <p>{{ post.description }}</p>
+            </li>
+            <br>
+          {% endfor %}
+        </ul>
+      </div>
+  </div>
+  </div>
+</body>
+</html>

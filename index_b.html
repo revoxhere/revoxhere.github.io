@@ -1,0 +1,1728 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="robots" content="index, follow">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="language" content="English">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="assets/ico.png">
+    <link rel="shortcut icon" href="assets/ico.png">
+    <title>Robert aka 'revox'</title>
+    <meta name="apple-mobile-web-app-title" content="Robert aka 'revox'">
+    <meta name="application-name" content="Robert aka 'revox'">
+    <meta name="twitter:title" content="Robert aka 'revox'">
+    <meta property="og:title" content="Robert aka 'revox'">
+    <meta name="description" content="A 20 year old IT & electronics enthusiast.">
+    <meta name="twitter:description" content="A 20 year old IT & electronics enthusiast.">
+    <meta property="og:description" content="A 20 year old IT & electronics enthusiast.">
+    <meta name="keywords" content="revox, revoxsvko, revoxhere, reVox96, revox96, duino, duino-coin, duco, magi, xmg">
+    <meta name="author" content="revox from the Duino-Coin Team">
+    <meta property="og:url" content="https://revoxhere.github.io">
+    <meta name="msapplication-TileColor" content="#27ae60">
+    <meta name="theme-color" content="#27ae60">
+    <meta name="twitter:site" content="@revox_here">
+    <meta name="twitter:image" content="https://revoxhere.github.io/assets/banner.png">
+    <meta property="og:image" content="https://revoxhere.github.io/assets/banner.png">
+    <meta property="og:image:url" content="https://revoxhere.github.io/assets/banner.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://wallet.duinocoin.com/css/bulma-prefers-dark.min.css" type="text/css">
+    <script src="https://wallet.duinocoin.com/js/fontawesome.js"></script>
+    <style>
+    .link {
+        color: #27ae60;
+        text-decoration: none;
+        background-image: linear-gradient(90deg, #2ecc71, #1abc9c, #2ecc71);
+        background-repeat: no-repeat;
+        background-position: bottom left;
+        background-size: 0% 2px;
+        transition: background-size 400ms ease-in-out;
+        transition: 0.5s;
+    }
+
+    .link:hover {
+        color: #1abc9c;
+        background-size: 100% 2px;
+    }
+
+    .social {
+        color: #27ae60;
+    }
+
+    #nick_container {
+        height: 1.3em;
+        overflow: hidden;
+        display: inline-block;
+    }
+
+    .rotate,
+    .social {
+        transition: all 0.2s ease-in-out 0s;
+    }
+
+    .rotate:hover {
+        cursor: default;
+        transform: rotate(360deg);
+        transition: all 0.5s ease-in-out 0s;
+
+    }
+
+    #nick {
+        float: right;
+        display: inline-block;
+        animation: popin 2s ease-in-out infinite;
+    }
+
+    .imgshadow {
+        -webkit-filter: drop-shadow(2px 2px 5px rgba(0, 0, 0, 0.6));
+        -ms-filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=2, OffY=2, Color='#444')";
+        filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=2, OffY=2, Color='#444')";
+    }
+
+    .lightshadow {
+        -webkit-filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.3));
+        -ms-filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=0, OffY=0, Color='#222')";
+        filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=0, OffY=0, Color='#222')";
+    }
+
+    p {
+        text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.2);
+    }
+
+    @media (prefers-color-scheme: light) {
+        html {
+            background-color: #FBF7F4;
+        }
+
+        .heading {
+            color: #1e272e;
+        }
+
+        #projektysmall:after {
+            content: "";
+            position: absolute;
+            z-index: 1;
+            bottom: 0;
+            left: 0;
+            pointer-events: none;
+            background-image: linear-gradient(to bottom, #FBF7F400, #FBF7F4EE);
+            width: 100%;
+            height: 14em;
+        }
+    }
+
+    @media (prefers-color-scheme: dark) {
+        .heading {
+            color: #fbfbfb;
+        }
+
+        #projektysmall:after {
+            content: "";
+            position: absolute;
+            z-index: 1;
+            bottom: 0;
+            left: 0;
+            pointer-events: none;
+            background-image: linear-gradient(to bottom, #17181C00, #17181CEE);
+            width: 100%;
+            height: 14em;
+        }
+    }
+
+    @media only screen and (min-width: 768px) {
+        html {
+            zoom: 1.1;
+        }
+
+        .avatar {
+            margin-left: auto !important;
+        }
+    }
+
+    .heading {
+        margin-bottom: 0.5em !important;
+    }
+
+    #projektysmall {
+        max-height: 1024px;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .removeBar:after {
+        content: none !important;
+    }
+
+    @keyframes popin {
+
+        0%,
+        30% {
+            transform: translate(0px, 0px);
+
+        }
+
+        40%,
+        90% {
+            transform: translate(0px, -1.5em);
+        }
+    }
+
+    @-moz-keyframes rotate {
+        100% {
+            -moz-transform: rotate(360deg);
+        }
+    }
+
+    @-webkit-keyframes rotate {
+        100% {
+            -webkit-transform: rotate(360deg);
+        }
+    }
+
+    @keyframes rotate {
+        100% {
+            -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+        }
+    }
+    
+    html {
+        --scrollbarBG: #FBF7F4;
+        --thumbBG: #49C78E;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        html {
+            --scrollbarBG: #rgb(23, 24, 28);
+            --thumbBG: #1DA64C;
+        }
+    }
+
+    *::-webkit-scrollbar {
+        width: 11px;
+    }
+
+    * {
+        scrollbar-width: thin;
+        scrollbar-color: var(--thumbBG) var(--scrollbarBG);
+    }
+
+    *::-webkit-scrollbar-track {
+        background: var(--scrollbarBG);
+    }
+
+    *::-webkit-scrollbar-thumb {
+        background-color: var(--thumbBG);
+        border-radius: 6px;
+        border: 3px solid var(--scrollbarBG);
+    }
+    </style>
+</head>
+
+<body>
+    <section class="section">
+        <div class="container">
+            <div class="columns is-centered is-vcentered">
+                <div class="column has-text-right">
+                    <div class="columns is-multiline is-centered">
+                        <div class="column is-full">
+                            <figure class="image is-128x128 avatar">
+                                <img class="is-rounded imgshadow" src="assets/revox.jpg">
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="columns is-multiline is-centered">
+                        <div class="column is-full">
+                            <div>
+                                <p class="heading mb-0"><b>Hey</b>, I'm</p>
+                                <p class="title"><b>Robert</b></p>
+                                <p class="subtitle">
+                                    <div id="nick_container">
+                                        also known as <b>revox</b>
+                                        <span class="has-text-weight-light" id="nick">svko<br>here</span>
+                                    </div>
+                                </p>
+                                <div class="content">
+                                    <a href="https://github.com/revoxhere" class="social lightshadow">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                    &nbsp;
+                                    <a href="https://www.instagram.com/revox.here/" class="social lightshadow">
+                                        <i class="fab fa-instagram"></i>
+                                    </a>
+                                    &nbsp;
+                                    <a href="https://www.youtube.com/c/reVox96/" class="social lightshadow">
+                                        <i class="fab fa-youtube"></i>
+                                    </a>
+                                    &nbsp;
+                                    <a href="https://discordapp.com/users/599482890321133580" class="social lightshadow">
+                                        <i class="fab fa-discord"></i>
+                                    </a>
+                                    &nbsp;
+                                    <a href="https://twitter.com/revox_here" class="social lightshadow">
+                                        <i class="fab fa-twitter"></i>
+                                    </a>
+                                    &nbsp;
+                                    <a href="https://steamcommunity.com/id/revoxxxhere/" class="social lightshadow">
+                                        <i class="fab fa-steam"></i>
+                                    </a>
+                                    &nbsp;
+                                    <a href="https://www.reddit.com/user/reVox96" class="social lightshadow">
+                                        <i class="fab fa-reddit"></i>
+                                    </a>
+                                    &nbsp;
+                                    <a href="mailto:robert@piotrowsky.dev" class="social lightshadow">
+                                        <i class="fa fa-at"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <p>
+                                <a onclick="eng()" class="link">
+                                    <img src="assets/eng.png" class="lightshadow" style="height:0.75em">
+                                    <span><u>English version</u></span>
+                                </a>&nbsp;/&nbsp;
+                                <a onclick="pl()" class="link">
+                                    <img src="assets/pl.png" class="lightshadow" style="height:0.75em">
+                                    <span>Wersja polska</span>
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="columns mb-0 mt-3 is-gapless">
+                <div class="column is-2"></div>
+                <div class="column has-text-right-desktop mr-5">
+                    <div class="columns is-multiline is-centered">
+                        <div class="column is-full">
+                            <div>
+                                <p class="heading mb-0 is-size-6">ABOUT <b>ME</b></p>
+                                <div class="content">
+                                    I'm a(n) <b id="age"></b> year old IT and electronics enthusiast living near <b>Bydgoszcz</b>, <b>Poland</b>. I finished primary school in 2019 with quite good results and I'm now learning as <b>electronics technician</b> in the <u>#1 school</u> in my voivodeship.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column is-full">
+                            <p class="heading mb-0 is-size-6">
+                                <b>Electronic projects</b> I've made
+                            </p>
+                            <div class="columns is-multiline">
+                                <div class="column is-full" id="projektysmall">
+                                    <div class="columns is-multiline is-mobile">
+                                        <div class='column is-half'>
+                                            <div class="card">
+                                                <div class="card-image">
+                                                    <figure class="image">
+                                                        <img src="assets/powerbank-ushld.gif" loading="lazy">
+                                                    </figure>
+                                                </div>
+                                                <div class="card-content has-text-left">
+                                                    <div class="content">
+                                                        <a href="https://www.printables.com/pl/model/663909-magsafe-powerbank" target="_blank">
+                                                            <b>MagSafe</b> Powerbank
+                                                            <i class="fa fa-link"></i>
+                                                        </a>
+                                                        <p class="heading mt-3 has-text-grey">
+                                                            October-November 2023
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class='column is-half'>
+                                            <div class="card">
+                                                <div class="card-image">
+                                                    <figure class="image">
+                                                        <img src="assets/blushybox.png" loading="lazy">
+                                                    </figure>
+                                                </div>
+                                                <div class="card-content has-text-left">
+                                                    <div class="content">
+                                                        Duino <b>BlushyBox</b>
+                                                        <p class="heading mt-3 has-text-grey">
+                                                            September-October 2023
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class='column is-half'>
+                                            <div class="card">
+                                                    <div class="card-image">
+                                                        <figure class="image">
+                                                            <img src="assets/iv3a.jpg" loading="lazy">
+                                                        </figure>
+                                                </div>
+                                                <div class="card-content has-text-left">
+                                                    <div class="content">
+                                                        <a href="https://www.printables.com/pl/model/557320-iv-3a-vfd-clock">
+                                                            <b>IV-3A</b> VFD clock
+                                                            <i class="fa fa-link"></i>
+                                                        </a>
+                                                        <p class="heading mt-3 has-text-grey">
+                                                            August 2023
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class='column is-half'>
+                                            <div class="card">
+                                                <div class="card-image">
+                                                    <figure class="image">
+                                                        <img src="assets/3x3x3.gif" loading="lazy">
+                                                    </figure>
+                                                </div>
+                                                <div class="card-content has-text-left">
+                                                    <div class="content">
+                                                        3x3x3 LED cube
+                                                        <p class="heading mt-3 has-text-grey">
+                                                            August 2023
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class='column is-half'>
+                                            <div class="card">
+                                                <div class="card-image">
+                                                    <figure class="image">
+                                                        <img src="assets/zasilacz-v2.jpg" loading="lazy">
+                                                    </figure>
+                                                </div>
+                                                <div class="card-content has-text-left">
+                                                    <div class="content">
+                                                        New bench power supply
+                                                        <p class="heading mt-3 has-text-grey">
+                                                            August 2023
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class='column is-half'>
+                                            <div class="card">
+                                                <div class="card-image">
+                                                    <figure class="image">
+                                                        <img src="assets/revox_in14.jpg" loading="lazy">
+                                                    </figure>
+                                                </div>
+                                                <div class="card-content has-text-left">
+                                                    <div class="content">
+                                                        <a href="https://www.printables.com/pl/model/527839-in-14-nixie-clock">
+                                                            <b>IN-14</b> Nixie clock
+                                                            <i class="fa fa-link"></i>
+                                                        </a>
+                                                        <p class="heading mt-3 has-text-grey">
+                                                            July 2023
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class='column is-half'>
+                                            <div class="card">
+                                                <div class="card-image">
+                                                    <figure class="image">
+                                                        <img src="assets/ticker.jpg" loading="lazy">
+                                                    </figure>
+                                                </div>
+                                                <div class="card-content has-text-left">
+                                                    <div class="content">
+                                                        <a href="https://www.printables.com/pl/model/525216-18-lcd-crypto-price-ticker">
+                                                            Cryptocurrency price ticker
+                                                            <i class="fa fa-link"></i>
+                                                        </a>
+                                                        <p class="heading mt-3 has-text-grey">
+                                                            July 2023
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class='column is-half'>
+                                            <div class="card">
+                                                <div class="card-image">
+                                                    <figure class="image">
+                                                        <img src="assets/6j1.jpg" loading="lazy">
+                                                    </figure>
+                                                </div>
+                                                <div class="card-content has-text-left">
+                                                    <div class="content">
+                                                        <a href="https://www.printables.com/pl/model/524333-6j1-valve-preamp-case-with-transformer">
+                                                            <b>6j1</b> Valve preamp
+                                                            <i class="fa fa-link"></i>
+                                                        </a>
+                                                        <p class="heading mt-3 has-text-grey">
+                                                            July 2023
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class='column is-half'>
+                                            <div class="card">
+                                                <div class="card-image">
+                                                    <figure class="image">
+                                                        <img src="assets/starter.jpg" loading="lazy">
+                                                    </figure>
+                                                </div>
+                                                <div class="card-content has-text-left">
+                                                    <div class="content">
+                                                        Duino <b>Starter</b>
+                                                        <p class="heading mt-3 has-text-grey">
+                                                            June-July 2023
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class='column is-half'>
+                                            <div class="card">
+                                                <div class="card-image">
+                                                    <figure class="image">
+                                                        <img src="assets/iv18.jpg" loading="lazy">
+                                                    </figure>
+                                                </div>
+                                                <div class="card-content has-text-left">
+                                                    <div class="content">
+                                                        <a href="https://www.printables.com/pl/model/518033-iv-18-vfd-clock-with-alarm">
+                                                            <b>IV-18</b> VFD clock with alarm
+                                                            <i class="fa fa-link"></i>
+                                                        </a>
+                                                        <p class="heading mt-3 has-text-grey">
+                                                            July 2023
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class='column is-half'>
+                                            <div class="card">
+                                                <div class="card-image">
+                                                    <figure class="image">
+                                                        <img src="assets/lc531alarm.jpg" loading="lazy">
+                                                    </figure>
+                                                </div>
+                                                <div class="card-content has-text-left">
+                                                    <div class="content">
+                                                        <a href="https://www.printables.com/pl/model/516004-lc-531-in-16-nixie-clock-with-alarm">
+                                                            <b>LC-531 & IN-16</b> Nixie clock with alarm
+                                                            <i class="fa fa-link"></i>
+                                                        </a>
+                                                        <p class="heading mt-3 has-text-grey">
+                                                            June 2023
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class='column is-half'>
+                                            <div class="card">
+                                                <div class="card-image">
+                                                    <figure class="image">
+                                                        <img src="assets/lc531.jpg" loading="lazy">
+                                                    </figure>
+                                                </div>
+                                                <div class="card-content has-text-left">
+                                                    <div class="content">
+                                                        <a href="https://www.printables.com/pl/model/491571-lc-531-nixie-clock">
+                                                            <b>LC-531</b> Nixie clock
+                                                            <i class="fa fa-link"></i>
+                                                        </a>
+                                                        <p class="heading mt-3 has-text-grey">
+                                                            May 2023
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class='column is-half'>
+                                            <div class="card">
+                                                <div class="card-image">
+                                                    <figure class="image">
+                                                        <img src="assets/nixie_in14_in16.jpg" loading="lazy">
+                                                    </figure>
+                                                </div>
+                                                <div class="card-content has-text-left">
+                                                    <div class="content">
+                                                        <a href="https://www.printables.com/pl/model/480973-in-14-in-16-nixie-clock">
+                                                            <b>IN-14</b> & <b>IN-16</b> Nixie clock
+                                                            <i class="fa fa-link"></i>
+                                                        </a>
+                                                        <p class="heading mt-3 has-text-grey">
+                                                            May 2023
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class='column is-half'>
+                                            <div class="card">
+                                                <div class="card-image">
+                                                    <figure class="image">
+                                                        <img src="assets/sterownik.jpg" loading="lazy">
+                                                    </figure>
+                                                </div>
+                                                <div class="card-content has-text-left">
+                                                    <div class="content">
+                                                        <a href="https://github.com/revoxhere/sterownik-suszarki-filamentu">
+                                                            <b>Filament dryer</b> controller
+                                                            <i class="fa fa-link"></i>
+                                                        </a>
+                                                        <p class="heading mt-3 has-text-grey">
+                                                            May 2023
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class='column is-half'>
+                                            <div class="card">
+                                                <div class="card-image">
+                                                    <figure class="image">
+                                                        <img src="assets/laptop2.jpg" loading="lazy">
+                                                    </figure>
+                                                </div>
+                                                <div class="card-content has-text-left">
+                                                    <div class="content">
+                                                        <a href="https://www.printables.com/pl/model/473449-solid-raspberry-pi-7-laptop">
+                                                            Solid <b>Raspberry Pi</b> laptop <small>version 2.0</small>
+                                                            <i class="fa fa-link"></i>
+                                                        </a>
+                                                        <p class="heading mt-3 has-text-grey">
+                                                            May 2023
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class='column is-half'>
+                                            <div class="card">
+                                                <div class="card-image">
+                                                    <figure class="image">
+                                                        <img src="assets/thermovu.gif" loading="lazy">
+                                                    </figure>
+                                                </div>
+                                                <div class="card-content has-text-left">
+                                                    <div class="content">
+                                                        <a href="https://www.printables.com/pl/model/461939-in-9-nixie-thermometervu-meter">
+                                                            <b>IN-9</b> Nixie thermometer/VU meter
+                                                            <i class="fa fa-link"></i>
+                                                        </a>
+                                                        <p class="heading mt-3 has-text-grey">
+                                                            April 2023
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class='column is-half'>
+                                            <div class="card">
+                                                <div class="card-image">
+                                                    <figure class="image">
+                                                        <img src="assets/btadapter.png" loading="lazy">
+                                                    </figure>
+                                                </div>
+                                                <div class="card-content has-text-left">
+                                                    <div class="content">
+                                                        <a href="https://www.printables.com/pl/model/459805-bluetooth-adapter-case">
+                                                            <b>Bluetooth</b> audio receiver with <b>preamp</b>
+                                                            <i class="fa fa-link"></i>
+                                                        </a>
+                                                        <p class="heading mt-3 has-text-grey">
+                                                            April 2023
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class='column is-half'>
+                                            <div class="card">
+                                                <div class="card-image">
+                                                    <figure class="image">
+                                                        <img src="assets/widmo.gif" loading="lazy">
+                                                    </figure>
+                                                </div>
+                                                <div class="card-content has-text-left">
+                                                    <div class="content">
+                                                        <a href="https://www.printables.com/pl/model/459812-futuristic-acrylic-spectrum-analyzer">
+                                                            Futuristic <b>spectrum analyzer</b>
+                                                            <i class="fa fa-link"></i>
+                                                        </a>
+                                                        <p class="heading mt-3 has-text-grey">
+                                                            April 2023
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class='column is-half'>
+                                            <div class="card">
+                                                <div class="card-image">
+                                                    <figure class="image">
+                                                        <img src="assets/przetwornica2.0.jpg" loading="lazy">
+                                                    </figure>
+                                                </div>
+                                                <div class="card-content has-text-left">
+                                                    <div class="content">
+                                                        <a href="https://allegrolokalnie.pl/oferta/przetwornica-zasilacz-do-lamp-nixie-elektronowych">
+                                                            <b>Nixie & electron lamp</b> power supplies
+                                                            <i class="fa fa-shopping-bag"></i>
+                                                        </a>
+                                                        <small>version 2.0</small>
+                                                        <p class="heading mt-3 has-text-grey">
+                                                            April 2023
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class='column is-half'>
+                                            <div class="card">
+                                                <div class="card-image">
+                                                    <figure class="image">
+                                                        <img src="assets/powerbank.png" loading="lazy">
+                                                    </figure>
+                                                </div>
+                                                <div class="card-content has-text-left">
+                                                    <div class="content">
+                                                        <a href="https://www.printables.com/pl/model/459814-diy-5-ah-powerbank">
+                                                            <b>5Ah</b> Powerbank with <b>QuickCharge</b>
+                                                            <i class="fa fa-link"></i>
+                                                        </a>
+                                                        <p class="heading mt-3 has-text-grey">
+                                                            April 2023
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class='column is-half'>
+                                            <div class="card">
+                                                <div class="card-image">
+                                                    <figure class="image">
+                                                        <img src="assets/dock.jpg" loading="lazy">
+                                                    </figure>
+                                                </div>
+                                                <div class="card-content has-text-left">
+                                                    <div class="content">
+                                                        Multi-smartphone <b>charging dock</b>
+                                                        <p class="heading mt-3 has-text-grey">
+                                                            March 2023
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class='column is-half'>
+                                            <div class="card">
+                                                <div class="card-image">
+                                                    <figure class="image">
+                                                        <img src="assets/iv6_2.0.gif" loading="lazy">
+                                                    </figure>
+                                                </div>
+                                                <div class="card-content has-text-left">
+                                                    <div class="content">
+                                                        Clean <b>IV-6</b> VFD clock with temp sensor <small>version 2.0</small>
+                                                        <p class="heading mt-3 has-text-grey">
+                                                            March 2023
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class='column is-half'>
+                                            <div class="card">
+                                                <div class="card-image">
+                                                    <figure class="image">
+                                                        <img src="assets/dimmer.jpg" loading="lazy">
+                                                    </figure>
+                                                </div>
+                                                <div class="card-content has-text-left">
+                                                    <div class="content">
+                                                        <a href="https://www.printables.com/pl/model/419546-wall-mounted-led-dimmer">
+                                                            My own <b>12V LED dimmer</b>
+                                                            <i class="fa fa-link"></i>
+                                                        </a>
+                                                        <p class="heading mt-3 has-text-grey">
+                                                            March 2023
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class='column is-half'>
+                                            <div class="card">
+                                                <div class="card-image">
+                                                    <figure class="image">
+                                                        <img src="assets/switchbox.png" loading="lazy">
+                                                    </figure>
+                                                </div>
+                                                <div class="card-content has-text-left">
+                                                    <div class="content">
+                                                        <b>Switchbox</b> with relay and MOSFET outputs
+                                                        <p class="heading mt-3 has-text-grey">
+                                                            March 2023
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class='column is-half'>
+                                            <div class="card">
+                                                <div class="card-image">
+                                                    <figure class="image">
+                                                        <img src="assets/splitter2.jpg" loading="lazy">
+                                                    </figure>
+                                                </div>
+                                                <div class="card-content has-text-left">
+                                                    <div class="content">
+                                                        <b>4-channel audio isolator</b> with VU meters
+                                                        <p class="heading mt-3 has-text-grey">
+                                                            February 2023
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class='column is-half'>
+                                            <div class="card">
+                                                <div class="card-image">
+                                                    <figure class="image">
+                                                        <img src="assets/iv27.gif" loading="lazy">
+                                                    </figure>
+                                                </div>
+                                                <div class="card-content has-text-left">
+                                                    <div class="content">
+                                                        <a href="https://github.com/revoxhere/IV-27-VFD-Clock">
+                                                            Big <b>IV-27</b> VFD clock <i class="fa fa-link"></i>
+                                                        </a>
+                                                        <p class="heading mt-3 has-text-grey">
+                                                            February 2023
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class='column is-half'>
+                                            <div class="card">
+                                                <div class="card-image">
+                                                    <figure class="image">
+                                                        <img src="assets/iv21a.png" loading="lazy">
+                                                    </figure>
+                                                </div>
+                                                <div class="card-content has-text-left">
+                                                    <div class="content">
+                                                        <b>IV-21</b> VFD mini clock <small>version 2.0</small>
+                                                        <p class="heading mt-3 has-text-grey">
+                                                            February 2023
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class='column is-half'>
+                                            <div class="card">
+                                                <div class="card-image">
+                                                    <figure class="image">
+                                                        <img src="assets/iv6.jpg" loading="lazy">
+                                                    </figure>
+                                                </div>
+                                                <div class="card-content has-text-left">
+                                                    <div class="content">
+                                                        <a href="https://www.printables.com/pl/model/384490-retro-iv-6-vfd-clock">
+                                                            Clean <b>IV-6</b> VFD clock
+                                                            <i class="fa fa-link"></i>
+                                                        </a>
+                                                        <p class="heading mt-3 has-text-grey">
+                                                            January 2023
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class='column is-half'>
+                                            <div class="card">
+                                                <div class="card-image">
+                                                    <figure class="image">
+                                                        <img src="assets/in9replica.gif" loading="lazy">
+                                                    </figure>
+                                                </div>
+                                                <div class="card-content has-text-left">
+                                                    <div class="content">
+                                                        <a href="https://www.printables.com/pl/model/381429-vu-meter-with-led-replicas-of-in-9-nixie-tubes">
+                                                            VU meter with my LED <b>IN-9</b> "replicas"
+                                                            <i class="fa fa-link"></i>
+                                                        </a>
+                                                        <p class="heading mt-3 has-text-grey">
+                                                            January 2023
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class='column is-half'>
+                                            <div class="card">
+                                                <div class="card-image">
+                                                    <figure class="image">
+                                                        <img src="assets/vfd.jpg" loading="lazy">
+                                                    </figure>
+                                                </div>
+                                                <div class="card-content has-text-left">
+                                                    <div class="content">
+                                                        <a href="https://github.com/revoxhere/Mini-Zegar-VFD">
+                                                            <b>IV-21</b> VFD mini clock
+                                                            <i class="fa fa-link"></i>
+                                                        </a>
+                                                        <p class="heading mt-3 has-text-grey">
+                                                            January 2023
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class='column is-half'>
+                                            <div class="card">
+                                                <div class="card-image">
+                                                    <figure class="image">
+                                                        <img src="assets/6e2.gif" loading="lazy">
+                                                    </figure>
+                                                </div>
+                                                <div class="card-content has-text-left">
+                                                    <div class="content">
+                                                        <b>6E2</b> "Magic eye" VU meter
+                                                        <p class="heading mt-3 has-text-grey">
+                                                            January 2023
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class='column is-half'>
+                                            <div class="card">
+                                                <div class="card-image">
+                                                    <figure class="image">
+                                                        <img src="assets/nanoleaf2.gif" loading="lazy">
+                                                    </figure>
+                                                </div>
+                                                <div class="card-content has-text-left">
+                                                    <div class="content">
+                                                        "Nanoleaf Aurora" replica <small>version 2.0</small>
+                                                        <p class="heading mt-3 has-text-grey">
+                                                            December 2022
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class='column is-half'>
+                                            <div class="card">
+                                                <div class="card-image">
+                                                    <figure class="image">
+                                                        <img src="assets/nixie.jpg" loading="lazy">
+                                                    </figure>
+                                                </div>
+                                                <div class="card-content has-text-left">
+                                                    <div class="content">
+                                                        <b>IN-14</b> Nixie clock
+                                                        <p class="heading mt-3 has-text-grey">
+                                                            December 2022
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class='column is-half'>
+                                            <div class="card">
+                                                <div class="card-image">
+                                                    <figure class="image">
+                                                        <img src="assets/przetwornica555.jpg" loading="lazy">
+                                                    </figure>
+                                                </div>
+                                                <div class="card-content has-text-left">
+                                                    <div class="content">
+                                                        <a href="assets/555-supply.pdf">
+                                                            <b>NE555</b>-based tube power supply
+                                                            <i class="fa fa-link"></i>
+                                                        </a>
+                                                        <p class="heading mt-3 has-text-grey">
+                                                            December 2022
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class='column is-half'>
+                                            <div class="card">
+                                                <div class="card-image">
+                                                    <figure class="image">
+                                                        <img src="assets/AVT5500.png" loading="lazy">
+                                                    </figure>
+                                                </div>
+                                                <div class="card-content has-text-left">
+                                                    <div class="content">
+                                                        <a href="https://www.printables.com/pl/model/345804-avt5500-battery-capacity-tester-case">
+                                                            <b>AVT5500</b> assembly + my case
+                                                            <i class="fa fa-link"></i>
+                                                        </a>
+                                                        <p class="heading mt-3 has-text-grey">
+                                                            2019, December 2022
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class='column is-half'>
+                                            <div class="card">
+                                                <div class="card-image">
+                                                    <figure class="image">
+                                                        <img src="assets/ledClock.png" loading="lazy">
+                                                    </figure>
+                                                </div>
+                                                <div class="card-content has-text-left">
+                                                    <div class="content">
+                                                        Simple internet LED clock
+                                                        <p class="heading mt-3 has-text-grey">
+                                                            December 2022
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class='column is-half'>
+                                            <div class="card">
+                                                <div class="card-image">
+                                                    <figure class="image">
+                                                        <img src="assets/AVT2425.png" loading="lazy">
+                                                    </figure>
+                                                </div>
+                                                <div class="card-content has-text-left">
+                                                    <div class="content">
+                                                        <a href="https://www.printables.com/pl/model/334645-avt2425-capacitance-meter-enclosure">
+                                                            <b>AVT2425</b> assembly + my case
+                                                            <i class="fa fa-link"></i>
+                                                        </a>
+                                                        <p class="heading mt-3 has-text-grey">
+                                                            December 2022
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class='column is-half'>
+                                            <div class="card">
+                                                <div class="card-image">
+                                                    <figure class="image">
+                                                        <img src="assets/WS2812B_matrix.gif" loading="lazy">
+                                                    </figure>
+                                                </div>
+                                                <div class="card-content has-text-left">
+                                                    <div class="content">
+                                                        <b>WS2812B</b> 20x22px LED matrix
+                                                        <p class="heading mt-3 has-text-grey">
+                                                            November 2022
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class='column is-half'>
+                                            <div class="card">
+                                                <div class="card-image">
+                                                    <figure class="image">
+                                                        <img src="assets/IN-12.png" loading="lazy">
+                                                    </figure>
+                                                </div>
+                                                <div class="card-content has-text-left">
+                                                    <div class="content">
+                                                        <b>IN-12</b> Nixie clock
+                                                        <p class="heading mt-3 has-text-grey">
+                                                            November 2022
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class='column is-half'>
+                                            <div class="card">
+                                                <div class="card-image">
+                                                    <figure class="image">
+                                                        <img src="assets/tree.png" loading="lazy">
+                                                    </figure>
+                                                </div>
+                                                <div class="card-content has-text-left">
+                                                    <div class="content">
+                                                        LED christmas tree
+                                                        <p class="heading mt-3 has-text-grey">
+                                                            November 2022
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class='column is-half'>
+                                            <div class="card">
+                                                <div class="card-image">
+                                                    <figure class="image">
+                                                        <img src="assets/nanoleaf.gif" loading="lazy">
+                                                    </figure>
+                                                </div>
+                                                <div class="card-content has-text-left">
+                                                    <div class="content">
+                                                        "Nanoleaf Aurora" replica
+                                                        <p class="heading mt-3 has-text-grey">
+                                                            November 2022
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class='column is-half'>
+                                            <div class="card">
+                                                <div class="card-image">
+                                                    <figure class="image">
+                                                        <img src="assets/14segment.png" loading="lazy">
+                                                    </figure>
+                                                </div>
+                                                <div class="card-content has-text-left">
+                                                    <div class="content">
+                                                        14-segment LED display
+                                                        <p class="heading mt-3 has-text-grey">
+                                                            October 2022
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class='column is-half'>
+                                            <div class="card">
+                                                <div class="card-image">
+                                                    <figure class="image">
+                                                        <img src="assets/audiosplitter.png" loading="lazy">
+                                                    </figure>
+                                                </div>
+                                                <div class="card-content has-text-left">
+                                                    <div class="content">
+                                                        Isolated 4-way audio splitter
+                                                        <p class="heading mt-3 has-text-grey">
+                                                            October 2022
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class='column is-half'>
+                                            <div class="card">
+                                                <div class="card-image">
+                                                    <figure class="image">
+                                                        <img src="assets/AVT3132.png" loading="lazy">
+                                                    </figure>
+                                                </div>
+                                                <div class="card-content has-text-left">
+                                                    <div class="content">
+                                                        <b>AVT3132</b> LED clock + my case
+                                                        <p class="heading mt-3 has-text-grey">
+                                                            October 2022
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class='column is-half'>
+                                            <div class="card">
+                                                <div class="card-image">
+                                                    <figure class="image">
+                                                        <img src="assets/AVT2864.png" loading="lazy">
+                                                    </figure>
+                                                </div>
+                                                <div class="card-content has-text-left">
+                                                    <div class="content">
+                                                        <b>AVT2864</b> spectrum analyzer + my case
+                                                        <p class="heading mt-3 has-text-grey">
+                                                            September 2022
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class='column is-half'>
+                                            <div class="card">
+                                                <div class="card-image">
+                                                    <figure class="image">
+                                                        <img src="assets/smartthing.png" loading="lazy">
+                                                    </figure>
+                                                </div>
+                                                <div class="card-content has-text-left">
+                                                    <div class="content">
+                                                        <a href="https://www.printables.com/pl/model/266182-esp32-128x32-oled-and-tp4056-case">
+                                                            ESP32 portable smart thing
+                                                            <i class="fa fa-link"></i>
+                                                        </a>
+                                                        <p class="heading mt-3 has-text-grey">
+                                                            August 2022
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class='column is-half'>
+                                            <div class="card">
+                                                <div class="card-image">
+                                                    <figure class="image">
+                                                        <img src="assets/nanoleaf_hex.gif" loading="lazy">
+                                                    </figure>
+                                                </div>
+                                                <div class="card-content has-text-left">
+                                                    <div class="content">
+                                                        "Nanoleaf HEX" replica
+                                                        <p class="heading mt-3 has-text-grey">
+                                                            August 2022
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class='column is-half'>
+                                            <div class="card">
+                                                <div class="card-image">
+                                                    <figure class="image">
+                                                        <img src="assets/filament.gif" loading="lazy">
+                                                    </figure>
+                                                </div>
+                                                <div class="card-content has-text-left">
+                                                    <div class="content">
+                                                        PET bottle 3D printer <b>filament maker</b>
+                                                        <p class="heading mt-3 has-text-grey">
+                                                            July 2022
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class='column is-half'>
+                                            <div class="card">
+                                                <div class="card-image">
+                                                    <figure class="image">
+                                                        <img src="assets/powerbankduino.jpg" loading="lazy">
+                                                    </figure>
+                                                </div>
+                                                <div class="card-content has-text-left">
+                                                    <div class="content">
+                                                        Duino-Coin <b>Powerbank</b>
+                                                        <p class="heading mt-3 has-text-grey">
+                                                            May 2022
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class='column is-half'>
+                                            <div class="card">
+                                                <div class="card-image">
+                                                    <figure class="image">
+                                                        <img src="assets/vu_meter.gif" loading="lazy">
+                                                    </figure>
+                                                </div>
+                                                <div class="card-content has-text-left">
+                                                    <div class="content">
+                                                        Audio VU meter
+                                                        <p class="heading mt-3 has-text-grey">
+                                                            May 2022
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class='column is-half'>
+                                            <div class="card">
+                                                <div class="card-image">
+                                                    <figure class="image">
+                                                        <img src="assets/stacjapogodowa.png" loading="lazy">
+                                                    </figure>
+                                                </div>
+                                                <div class="card-content has-text-left">
+                                                    <div class="content">
+                                                        <a href="https://www.printables.com/pl/model/188731-nodemcu-dht11-128x32-oled-case">
+                                                            Simple weather station
+                                                            <i class="fa fa-link"></i>
+                                                        </a>
+                                                        <p class="heading mt-3 has-text-grey">
+                                                            May 2022
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class='column is-half'>
+                                            <div class="card">
+                                                <div class="card-image">
+                                                    <figure class="image">
+                                                        <img src="assets/zasilacz.png" loading="lazy">
+                                                    </figure>
+                                                </div>
+                                                <div class="card-content has-text-left">
+                                                    <div class="content">
+                                                        Ajustable bench power supply
+                                                        <p class="heading mt-3 has-text-grey">
+                                                            February 2022
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class='column is-half'>
+                                            <div class="card">
+                                                <div class="card-image">
+                                                    <figure class="image">
+                                                        <img src="assets/szyldzikowymanager.png" loading="lazy">
+                                                    </figure>
+                                                </div>
+                                                <div class="card-content has-text-left">
+                                                    <div class="content">
+                                                        Plexiglass LED decoration
+                                                        <p class="heading mt-3 has-text-grey">
+                                                            November 2021
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class='column is-half'>
+                                            <div class="card">
+                                                <div class="card-image">
+                                                    <figure class="image">
+                                                        <img src="assets/transmitter.jpg" loading="lazy">
+                                                    </figure>
+                                                </div>
+                                                <div class="card-content has-text-left">
+                                                    <div class="content">
+                                                        "Desktop" <b>walkie-talkie</b>
+                                                        <p class="heading mt-3 has-text-grey">
+                                                            March 2020
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class='column is-half'>
+                                            <div class="card">
+                                                <div class="card-image">
+                                                    <figure class="image">
+                                                        <img src="assets/dana.jpg" loading="lazy">
+                                                    </figure>
+                                                </div>
+                                                <div class="card-content has-text-left">
+                                                    <div class="content">
+                                                        <b>UNITRA Dana</b> restoration
+                                                        <p class="heading mt-3 has-text-grey">
+                                                            February 2020
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class='column is-half'>
+                                            <div class="card">
+                                                <div class="card-image">
+                                                    <figure class="image">
+                                                        <img src="assets/ta7272.jpg" loading="lazy">
+                                                    </figure>
+                                                </div>
+                                                <div class="card-content has-text-left">
+                                                    <div class="content">
+                                                        DIY TA7272 audio amplifier
+                                                        <p class="heading mt-3 has-text-grey">
+                                                            January 2020
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class='column is-half'>
+                                            <div class="card">
+                                                <div class="card-image">
+                                                    <figure class="image">
+                                                        <img src="assets/minilaptop.jpg" loading="lazy">
+                                                    </figure>
+                                                </div>
+                                                <div class="card-content has-text-left">
+                                                    <div class="content">
+                                                        <a href="https://youtu.be/vRpPfi7EjyY">
+                                                            Raspberry Pi <b>DIY laptop</b>
+                                                            <i class="fa fa-link"></i>
+                                                        </a>
+                                                        <p class="heading mt-3 has-text-grey">
+                                                            April 2019, August 2019
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class='column is-half'>
+                                            <div class="card">
+                                                <div class="card-image">
+                                                    <figure class="image">
+                                                        <img src="assets/powerbank.jpg" loading="lazy">
+                                                    </figure>
+                                                </div>
+                                                <div class="card-content has-text-left">
+                                                    <div class="content">
+                                                        <a href="https://youtu.be/sgf3-1bSJaI">
+                                                            My first <b>power bank</b> <i class="fa fa-link"></i>
+                                                        </a>
+                                                        <p class="heading mt-3 has-text-grey">
+                                                            December 2018
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class='column is-half'>
+                                            <div class="card">
+                                                <div class="card-image">
+                                                    <figure class="image">
+                                                        <img src="assets/tuba.jpg" loading="lazy">
+                                                    </figure>
+                                                </div>
+                                                <div class="card-content has-text-left">
+                                                    <div class="content">
+                                                        Portable speaker
+                                                        <p class="heading mt-3 has-text-grey">
+                                                            June 2018
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class='column is-full'>
+                                            <div class="card">
+                                                <div class="card-content has-text-left">
+                                                    <div class="content">
+                                                        I've made much more projects over the years, but not all are documented and some were given away. <b>This list will be actively updated!</b>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button onclick="showProjects()" id="projektybutton" class="button is-success is-fullwidth mt-3 mb-5">
+                                    Show more&nbsp;<i class="fa fa-arrow-down"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="columns is-multiline is-centered">
+                        <div class="column is-full">
+                            <div>
+                                <p class="heading mb-0 is-size-6"><b>PROGRAMMING LANGUAGES</b> I KNOW</p>
+                                <div class="columns is-multiline">
+                                    <div class="column is-full">
+                                        <div class="columns is-mobile">
+                                            <div class="column">
+                                                <progress class="progress is-success mt-1" value="95" max="100">95%</progress>
+                                            </div>
+                                            <div class="column">
+                                                <span>Python 3</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="column is-full">
+                                        <div class="columns is-mobile">
+                                            <div class="column">
+                                                <progress class="progress is-success mt-1" value="95" max="100">95%</progress>
+                                            </div>
+                                            <div class="column">
+                                                <span>HTML</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="column is-full">
+                                        <div class="columns is-mobile">
+                                            <div class="column">
+                                                <progress class="progress is-success mt-1" value="65" max="100">65%</progress>
+                                            </div>
+                                            <div class="column">
+                                                <span>JavaScript</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="column is-full">
+                                        <div class="columns is-mobile">
+                                            <div class="column">
+                                                <progress class="progress is-success mt-1" value="60" max="100">60%</progress>
+                                            </div>
+                                            <div class="column">
+                                                <span>C, C++</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="column is-full">
+                                        <div class="columns is-mobile">
+                                            <div class="column">
+                                                <progress class="progress is-success mt-1" value="50" max="100">50%</progress>
+                                            </div>
+                                            <div class="column">
+                                                <span>CSS</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="column is-half">
+                                        <div class="columns is-mobile">
+                                            <div class="column">
+                                                <progress class="progress is-success mt-1" value="85" max="100">85%</progress>
+                                            </div>
+                                            <div class="column">
+                                                <span>8051 Asm</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="column is-half">
+                                        <div class="columns is-mobile">
+                                            <div class="column">
+                                                <progress class="progress is-success mt-1" value="10" max="100">10%</progress>
+                                            </div>
+                                            <div class="column">
+                                                <span>Ruby</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="column is-half">
+                                        <div class="columns is-mobile">
+                                            <div class="column">
+                                                <progress class="progress is-success mt-1" value="5" max="100">4%</progress>
+                                            </div>
+                                            <div class="column">
+                                                <span>C#</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="column is-half">
+                                        <div class="columns is-mobile">
+                                            <div class="column">
+                                                <progress class="progress is-success mt-1" value="5" max="100">3%</progress>
+                                            </div>
+                                            <div class="column">
+                                                <span>Julia</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column is-full">
+                            <p class="heading mb-0 is-size-6"><b>IT Projects</b> I've made</p>
+                            <div class="columns is-multiline">
+                                <div class="column is-full">
+                                    <img class="icon icon-text lightshadow rotate" src="https://magi.duinocoin.com/images/duco.png">
+                                    <a class="link" href="https://duinocoin.com">
+                                        duinocoin.com
+                                    </a>
+                                    - website for my <b>eco-friendly</b> crypto coin that works on microcontrollers, e.g. Arduino boards
+                                    <small class="has-text-grey">2019-2023</small>
+                                </div>
+                                <div class="column is-full">
+                                    <img class="icon icon-text lightshadow rotate" src="https://fluffyswap.com/favicon.png">
+                                    <a class="link" href="https://fluffyswap.com">
+                                        fluffyswap.com
+                                    </a>
+                                    - a <b>blazing fast</b> crypto exchange <small class="has-text-grey">2022-2023</small>
+                                </div>
+                                <div class="column is-full">
+                                    <img class="icon icon-text lightshadow rotate" src="https://wallet.duinocoin.com/assets/duco.svg">
+                                    <a class="link" href="https://wallet.duinocoin.com">
+                                        wallet.duinocoin.com
+                                    </a>
+                                    - online wallet for Duino - the <b>go-to place for every DUCO user</b> <small class="has-text-grey">2020-2023</small>
+                                </div>
+                                <div class="column is-full">
+                                    <img class="icon icon-text lightshadow rotate" src="https://wallet.duinocoin.com/assets/magi.png">
+                                    <a class="link" href="https://magi.duinocoin.com">
+                                        magi.duinocoin.com
+                                    </a>
+                                    - web wallet & explorer for <b>Magi</b>, a decentralized cryptocurrency <small class="has-text-grey">2021-2023</small>
+                                </div>
+                                <div class="column is-full">
+                                    <img class="icon icon-text lightshadow rotate" src="https://github.com/revoxhere/duino-coin/blob/master/Resources/duco-alt.png?raw=true">
+                                    <a class="link" href="https://github.com/revoxhere/duino-coin">
+                                        Duino-Coin core
+                                    </a>
+                                    - code repository for <b>my crypto coin that can be mined with almost everything</b>, including Arduino boards <small class="has-text-grey">2019-2023</small>
+                                </div>
+                                <div class="column is-full">
+                                    <img class="icon icon-text lightshadow rotate" src="https://github.com/revoxhere/magi-webservices/raw/main/images/magi2021_light.png">
+                                    <a class="link" href="https://github.com/revoxhere/magi-rest-api">
+                                        Magi REST/RPC API
+                                    </a>
+                                    - (first!) <b>Python library</b> and a (public!) Flask app <small class="has-text-grey">2021-2023</small>
+                                </div>
+                                <div class="column is-full">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/PowerShell_5.0_icon.png" class="icon icon-text lightshadow rotate">
+                                    <a class="link" href="https://raw.githubusercontent.com/revoxhere/revoxhere.github.io/main/assets/AutomatyczneKopieZapasowe.ps1">
+                                        Automatic backups
+                                    </a>
+                                    - a simple program for <b>creating backups</b> and <b>auto-deletion of old ones</b> written in PowerShell <span class="tag is-warning">Tyco</span><small class="has-text-grey"> 2023</small>
+                                </div>
+                                <div class="column is-full">
+                                    <img src="https://github.com/revoxhere/svkobot/raw/main/svkobot.png" class="icon icon-text lightshadow rotate">
+                                    <a class="link" href="https://github.com/revoxhere/svkobot">
+                                        svkobot
+                                    </a>
+                                    - my 'for-fun' Discord bot <small class="has-text-grey">2021-2023</small>
+                                </div>
+                                <div class="column is-full">
+                                    <span class="icon icon-text lightshadow rotate">🏠</span>
+                                    <a class="link" href="https://github.com/revoxhere/ESP8266-SmartHome">
+                                        ESP8266 Smart Home
+                                    </a>
+                                    - a (WIP) ESP8266 smart home automation system <small class="has-text-grey">2019-2020</small>
+                                </div>
+                                <div class="column is-full">
+                                    <span class="icon icon-text lightshadow rotate">⬇️</span>
+                                    <a class="link" href="https://github.com/revoxhere/Pretty-YouTube-Downloader">
+                                        Pretty YouTube Downloader
+                                    </a>
+                                    - a simple video downloader <small class="has-text-grey">2019-2021</small>
+                                </div>
+                                <div class="column is-full">
+                                    <span class="icon icon-text lightshadow rotate">💾</span>
+                                    <a class="link" href="https://github.com/revoxhere/Extendify">
+                                        Extendify
+                                    </a>
+                                    - a tool that allows getting a few more megabytes on a disk <small class="has-text-grey">2019</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column is-full">
+                            <div>
+                                <p class="heading mb-0 is-size-6">SOME IT PROJECTS I'VE <b>CONTRIBUTED</b> TO</p>
+                                <div class="content">
+                                    <ul>
+                                        <li>
+                                            <img class="icon icon-text lightshadow rotate" src="https://biurokmj.eu/logo.png">
+                                            <a class="link" href="https://biurokmj.eu">
+                                                biurokmj.eu
+                                            </a>
+                                            - accounting website I've made for "KMJ"
+                                        </li>
+                                        <li>
+                                            <img class="icon icon-text lightshadow rotate" src="/assets/infternet.png">
+                                            <a class="link" href="https://infter.net">
+                                                infter.net
+                                            </a>
+                                            - a site on which you can <i>"own a piece of the internet"</i> <small class="has-text-grey">2023</small>
+                                        </li>
+                                        <li>
+                                            <a class="link" href="https://github.com/simple-home">
+                                                Simple-Home
+                                            </a> - simple smart home & automation system
+                                        </li>
+                                        <li>
+                                            <a class="link" href="https://github.com/Bilaboz/duino-coin-pools">
+                                                duino-coin-pools
+                                            </a> - node.js mining nodes for Duino
+                                        </li>
+                                        <li>
+                                            <a class="link" href="https://github.com/Bilaboz/duino-stats">
+                                                duino-stats
+                                            </a> - node.js Discord bot for Duino
+                                        </li>
+                                        <li>
+                                            <a class="link" href="https://github.com/primitt/duino-stats-mini">
+                                                duino-stats-mini
+                                            </a> - Python Discord bot for Duino
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="column is-2"></div>
+            </div>
+            <div class="columns is-gapless mt-5">
+                <div class="column has-text-right-desktop">
+                    <div class="columns is-multiline is-centered">
+                        <div class="column is-full mr-5">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+<script>
+function eng() {
+    setCookie("lang", "1", 1);
+    document.location.href = 'https://piotrowsky.dev';
+}
+
+function pl() {
+    setCookie("lang", "1", 1);
+    document.location.href = 'https://piotrowsky.dev/pl';
+}
+
+const day = 24 * 60 * 60 * 1000;
+const age = document.getElementById("age");
+
+round_to = function(precision, value) {
+    value = parseFloat(value);
+    power_of_ten = 10 ** precision;
+    return ((value * power_of_ten) / power_of_ten).toFixed(precision);
+}
+
+day_diff = function(d1, d2) {
+    /* totally not borrowed from kristians page */
+    return (d2 - Date.parse(d1)) / day;
+}
+
+function update_age() {
+    age.innerHTML = round_to(8, day_diff('Jan 26, 2004 13:25:00', new Date()) / 365);
+}
+
+function showProjects() {
+    document.getElementById("projektysmall").style.maxHeight = "100%";
+    document.getElementById("projektysmall").classList.add("removeBar");
+    document.getElementById("projektybutton").remove();
+}
+
+update_age();
+setInterval(function() {
+    update_age();
+}, 100);
+
+function setCookie(name, value, days) {
+    var expires = "";
+    if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" + (value || "") + expires + "; path=/";
+}
+
+function getCookie(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+    }
+    return null;
+}
+
+var language = navigator.language || navigator.browserLanguage; //for IE
+
+if (language.indexOf('pl') > -1 && !getCookie("lang") && !document.location.href.includes("127.0.0.1")) {
+    document.location.href = 'https://piotrowsky.dev/pl.html';
+}
+</script>
+
+</html>
