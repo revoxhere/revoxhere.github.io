@@ -1,5 +1,6 @@
 title: Robert aka 'revox'
 description: A 22 year old IT & electronics enthusiast.
 url: "https://revoxhere.github.io"
+future: true
 plugins:
   - jekyll-seo-tag
