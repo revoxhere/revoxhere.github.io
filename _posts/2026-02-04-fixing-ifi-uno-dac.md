@@ -57,5 +57,6 @@ Having soldered the "missing" capacitor, I put back everything into the housing 
 Whether it was a cost saving measure or a production oversight, it looks like adding a capacitor seems to, at least for me, fix the random pops coming out from the ifi Uno DAC. If you have issues with your own, give this mod a try. The only thing you really need is some basic soldering experience and an electrolytic capacitor that will fit.
 
 Thank you for reading this blog post!
-Cheers,
-revox
+
+Cheers,  
+Robert
