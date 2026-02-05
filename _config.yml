@@ -4,4 +4,5 @@ url: "https://revoxhere.github.io"
 future: true
 google_analytics: G-X4VXZH17KC
 plugins:
+  - jekyll-sitemap
   - jekyll-seo-tag
