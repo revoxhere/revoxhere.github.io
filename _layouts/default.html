@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <link rel="stylesheet" href="https://wallet.duinocoin.com/css/bulma-prefers-dark.min.css">
     <meta name="google-site-verification" content="3wUZVZwyfxVux3Mu9lrI61BDxB2dVXkSlNkgy8at_ps" />
-    
+
     <style>
         .link {
             color: #27ae60;
@@ -114,6 +114,49 @@
             color: #666;             /* Makes caption grey */
             font-style: italic;
         }
+
+        @font-face {
+            font-family: 'BubbleGum';
+            src: url('/assets/BubbleGum-Black.otf') format('opentype');
+            font-display: swap;
+        }
+
+        .revox-logo {
+            font-family: 'BubbleGum', sans-serif;
+            font-size: 5rem; 
+            color: #ffffff;
+            text-decoration: none;
+            line-height: 1;
+            display: inline-block;
+            margin-bottom: 20px;
+            
+           
+            animation: neon-green-pulse 3s infinite alternate;
+        }
+
+        @keyframes neon-green-pulse {
+            0% {
+                text-shadow: 
+                    0 0 5px  #27ae60, 
+                    3px 3px 0px #1e272e,
+                    0 0 15px #2ecc71; 
+                transform: scale(1);
+            }
+            100% {
+                text-shadow: 
+                    0 0 10px #2ecc71,  
+                    3px 3px 0px #1e272e,
+                    0 0 30px #00ff88, 
+                    0 0 50px #27ae60;  
+                transform: scale(1.02); 
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .revox-logo {
+                font-size: 3.5rem;
+            }
+        }
     </style>
 </head>
 
@@ -121,6 +164,9 @@
     <section class="section">
         <div class="container">
             <div class="column is-vcentered">
+                <div class="has-text-centered">
+                    <a href="/" class="revox-logo">revox</a>
+                </div>
                 <div class="column">
                     {% unless page.url == "/" %}
                         <h1 class="title">{{ page.title }}</h1>
