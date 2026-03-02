@@ -5,15 +5,14 @@ description: Guide to compiling and installing a Mysterium node on a Raspberry P
 image: /assets/rpi-zero-myst/thumb.png
 ---
 
-# Running a Mysterium node on a Raspberry Pi Zero
-
 Hello again!
+
 This time I'd like to share my journey with installing a Mysterium (MYST) node on the first gen RPi Zero. 
 First of all, I think I should mention that according to the official docs, running a node on an original, first-gen Pi Zero is **not supported**. 
 
 The official binaries are built for ARMv7 and ARM64. The original Pi Zero runs on an older ARMv6 architecture. If you try to run the standard installer, the Pi will spit out an "Illegal Instruction" error. Zero only has a single-core 1GHz CPU and 512MB of RAM, which is below the officially stated 1GB minimum. 
 
-Knowing all that and having a spare Pi Zero V1.3 sitting in a drawer, I decided to try my luck in getting it to run anyway. My first tries were actually with Honeygain, but that proved to be more difficult due to stricter connection requirements and overall system demands.
+Knowing all that and having a spare Pi Zero V1.3 sitting in a drawer, I decided to try my luck in getting it to run anyway, mainly for fun. My first tries were actually with Honeygain, but that proved to be more difficult due to stricter connection requirements and overall system demands.
 
 ---
 
@@ -35,15 +34,16 @@ env GOOS=linux GOARCH=arm GOARM=6 go build -o myst ./cmd/myst
 
 ### Pre-built binary
 
-Alternatively, if you don't want to compile the binary yourself, you can **download the one I compiled [here](/assets/rpi-zero-myst/myst)**.
+Alternatively, if you don't want to compile the binary yourself, you can download the one I compiled **[here](/assets/rpi-zero-myst/myst)**.
 
-You now have a custom-built Mysterium binary that won't instantly crash your Pi.
+
+You should now have a custom-built Mysterium binary that won't instantly crash your Pi.
 
 ---
 
 ## Step 2: Preparing Raspbian
 
-Since the Pi Zero has 512MB of RAM, and Mysterium tries to do a heavy WireGuard encryption handshake, the Linux *out of memory* killer will snipe the process sooner or later. 
+Since the Pi Zero has 512MB of RAM, and Mysterium tries to do a heavy WireGuard encryption handshake, the Linux *out of memory* killer will kill the process sooner or later. 
 
 I suggest using the CLI version (no desktop) version of Raspbian, but it should work in the desktop one too. YMMV.
 
@@ -75,7 +75,6 @@ Make it executable and run it for the first time:
 ```bash
 chmod +x ./myst
 sudo ./myst service --agreed-terms-and-conditions
-
 ```
 
 *(Run with `sudo` so it can create the VPN network interfaces).*
@@ -111,7 +110,6 @@ sudo modprobe tun
 sudo modprobe wireguard
 sudo modprobe ifb
 sudo modprobe sch_netem
-
 ```
 
 ### 3. Have patience
@@ -121,7 +119,7 @@ The Mysterium dashboard is slow to update. If you fix a network issue, it can ta
 ![Node status](/assets/rpi-zero-myst/node-status.png)
 *Figure 2: Running node status.*
 
-![Node connections](/assets/rpi-zero-myst/node-connections.png)
+![Node connections](/assets/rpi-zero-myst/node-sessions.png)
 *Figure 3: Proof of incoming connections.*
 
 ---
