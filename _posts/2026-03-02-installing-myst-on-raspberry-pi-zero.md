@@ -8,6 +8,7 @@ image: /assets/rpi-zero-myst/thumb.png
 Hello again!
 
 This time I'd like to share my journey with installing a Mysterium (MYST) node on the first gen RPi Zero. 
+
 First of all, I think I should mention that according to the official docs, running a node on an original, first-gen Pi Zero is **not supported**. 
 
 The official binaries are built for ARMv7 and ARM64. The original Pi Zero runs on an older ARMv6 architecture. If you try to run the standard installer, the Pi will spit out an "Illegal Instruction" error. Zero only has a single-core 1GHz CPU and 512MB of RAM, which is below the officially stated 1GB minimum. 
