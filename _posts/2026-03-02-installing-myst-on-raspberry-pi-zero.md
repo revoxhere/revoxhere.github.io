@@ -11,7 +11,7 @@ Hello again!
 This time I'd like to share my journey with installing a Mysterium (MYST) node on the first gen (V1.3) RPi Zero. 
 First of all, I think I should mention that according to the official docs, running a node on an original, first-gen Pi Zero is **not supported**. 
 
-The official binaries are built for ARMv7 and ARM64. The original Pi Zero runs on an older ARMv6 architecture. If you try to run the standard installer, the Pi will spit out an "Illegal Instruction" error. Zero has only has a single-core 1GHz CPU and 512MB of RAM, which is below the officially stated 1GB minimum. 
+The official binaries are built for ARMv7 and ARM64. The original Pi Zero runs on an older ARMv6 architecture. If you try to run the standard installer, the Pi will spit out an "Illegal Instruction" error. Zero only has a single-core 1GHz CPU and 512MB of RAM, which is below the officially stated 1GB minimum. 
 
 Knowing all that and having a spare Pi Zero V1.3 sitting in a drawer, I decided to try my luck in getting it to run anyway. My first tries were actually with Honeygain, but that proved to be more difficult due to stricter connection requirements and overall system demands.
 
@@ -19,12 +19,12 @@ Knowing all that and having a spare Pi Zero V1.3 sitting in a drawer, I decided 
 
 ## Step 1: The cross-compile
 
-Compiling the binary on the Pi is probably possible, but due to the limited resources, would take a lot of time. To save time I suggest doing this on a different Linux PC or in WSL.
+Compiling the binary on the Pi is probably possible, but due to the limited resources, it would take a lot of time. To save time I suggest doing this on a different Linux PC or in WSL.
 
 1. Install Go (Golang) on your PC.
 2. Clone the Mysterium node repository:
 ```bash
-git clone [https://github.com/mysteriumnetwork/node.git](https://github.com/mysteriumnetwork/node.git)
+git clone https://github.com/mysteriumnetwork/node.git
 cd node
 ```
 
@@ -45,7 +45,7 @@ You now have a custom-built Mysterium binary that won't instantly crash your Pi.
 
 Since the Pi Zero has 512MB of RAM, and Mysterium tries to do a heavy WireGuard encryption handshake, the Linux *out of memory* killer will snipe the process sooner or later. 
 
-I suggest using the CLI version (no desktop) version of Raspbian, but it should work in the desktop one too. YMMW.
+I suggest using the CLI version (no desktop) version of Raspbian, but it should work in the desktop one too. YMMV.
 
 1. Install the necessary networking tools:
 ```bash
@@ -97,7 +97,7 @@ The Pi Zero is too weak to handle standard NAT hole-punching reliably. You *must
 * Forward UDP ports `56000-56100` to your Pi's static IP.
 * In the Mysterium Node UI Settings (Advanced), set the UDP port range to `56000-56100`.
 
-!(/assets/rpi-zero-myst/node-ports.png)[Node settings setup]
+![Node settings setup](/assets/rpi-zero-myst/node-ports.png)
 *Figure 1: UDP ports setting in Node UI.*
 
 Do not worry if you are behind a CGNAT (like me) - it should work either way.
@@ -118,10 +118,10 @@ sudo modprobe sch_netem
 
 The Mysterium dashboard is slow to update. If you fix a network issue, it can take up to an hour for the status to flip from "Monitoring Failed" to "Online." Walk away, grab a coffee, and stop staring at it.
 
-!(/assets/rpi-zero-myst/node-status.png)[Node status]
+![Node status](/assets/rpi-zero-myst/node-status.png)
 *Figure 2: Running node status.*
 
-!(/assets/rpi-zero-myst/node-connections.png)[Node connections]
+![Node connections](/assets/rpi-zero-myst/node-connections.png)
 *Figure 3: Proof of incoming connections.*
 
 ---
@@ -131,11 +131,11 @@ The Mysterium dashboard is slow to update. If you fix a network issue, it can ta
 Can you run a Mysterium Node on an original Raspberry Pi Zero? **Sure.**
 Will it make you rich? **Absolutely not.** Because of the CPU bottleneck, you will max out at around 5-10 Mbps throughput. You won't get heavy Netflix streaming traffic, but you *will* reliably catch lightweight B2B traffic and web scraping tasks.
 
-You can create a systemd service to start the program automatically at boot, which is what I did, but I'm leaving this for the reader as a homework.
+You can create a systemd service to start the program automatically at boot, which is what I did, but I'm leaving this for the reader as homework.
 
-!(/assets/rpi-zero-myst/thumb.png)[Thumbnail image]
+![Thumbnail image](/assets/rpi-zero-myst/thumb.png)
 
-Once again, thank you for reading this blog post. I have added a comments section to the page in case someone that stumbles on my page would like to leave one.
+Once again, thank you for reading this blog post. I have added a comments section to the page in case someone who stumbles on my page would like to leave one.
 
 Cheers,  
 Robert
