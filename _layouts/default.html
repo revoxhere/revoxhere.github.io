@@ -212,9 +212,20 @@
             }
         }
 
+        .social {
+            color: #27ae60;
+            font-size: 1.5rem;
+            margin-right: 0.5rem;
+            transition: 0.2s;
+        }
+
         @media screen and (max-width: 768px) {
             .revox-logo {
                 font-size: 3.5rem;
+            }
+            .social {
+                zoom: 0.75;
+                margin-right: 0.25rem;
             }
         }
 
@@ -223,12 +234,6 @@
         .imgshadow { filter: drop-shadow(2px 2px 5px rgba(0, 0, 0, 0.6)); }
         .lightshadow { filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.3)); }
 
-        .social {
-            color: #27ae60;
-            font-size: 1.5rem;
-            margin-right: 0.5rem;
-            transition: 0.2s;
-        }
         .social:hover { color: #1abc9c; }
         .social>span>img:hover { filter: hue-rotate(40deg); }
     </style>
