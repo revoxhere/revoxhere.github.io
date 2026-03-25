@@ -9,6 +9,7 @@
     <link rel="icon" href="/assets/ico.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <link rel="stylesheet" href="https://wallet.duinocoin.com/css/bulma-prefers-dark.min.css">
+    <script src="https://wallet.duinocoin.com/js/fontawesome.js"></script>
     <meta name="google-site-verification" content="3wUZVZwyfxVux3Mu9lrI61BDxB2dVXkSlNkgy8at_ps" />
 
     <style>
@@ -23,9 +24,68 @@
             transition: 0.5s;
         }
 
+        .card {
+            border-radius: 25px 4px 25px 4px !important;
+        }
+
+        .card > .card-image > .image > img {
+            border-radius: 25px 4px 4px 4px !important;
+        }
+
+        .avatar {
+            border-radius: 25px 4px 25px 4px;
+            zoom: 1.3;
+        }
+
         .link:hover {
             color: #1abc9c;
             background-size: 100% 2px;
+        }
+
+         #projektysmall {
+            max-height: 1200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        @media (prefers-color-scheme: light) {
+            html {
+                background-color: #FBF7F4;
+            }
+
+            .heading {
+                color: #1e272e;
+            }
+
+            #projektysmall:after {
+                content: "";
+                position: absolute;
+                z-index: 1;
+                bottom: 0;
+                left: 0;
+                pointer-events: none;
+                background-image: linear-gradient(to bottom, #FBF7F400, #FBF7F4EE);
+                width: 100%;
+                height: 14em;
+            }
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .heading {
+                color: #fbfbfb;
+            }
+
+            #projektysmall:after {
+                content: "";
+                position: absolute;
+                z-index: 1;
+                bottom: 0;
+                left: 0;
+                pointer-events: none;
+                background-image: linear-gradient(to bottom, #17181C00, #17181CEE);
+                width: 100%;
+                height: 14em;
+            }
         }
 
 
@@ -84,7 +144,7 @@
             border: 3px solid var(--scrollbarBG);
         }
 
-        .content img {
+        /*.content img {
             max-height: 500px;  /* Limits height so it fits on a laptop screen */
             width: auto;        /* Maintains aspect ratio */
             display: block;     /* Allows centering */
@@ -99,7 +159,7 @@
                 max-height: none;
                 width: 100%;
             }
-        }
+        }*/
 
         /* 1. If a paragraph has an image inside it, center everything (including the caption) */
         .content p:has(img) {
@@ -156,6 +216,56 @@
             .revox-logo {
                 font-size: 3.5rem;
             }
+        }
+
+        #nick_container {
+            height: 1.3em;
+            overflow: hidden;
+            display: inline-block;
+            vertical-align: bottom;
+        }
+        #nick {
+            float: right;
+            display: inline-block;
+            animation: popin 2s ease-in-out infinite;
+        }
+        .rotate { transition: all 0.2s ease-in-out 0s; }
+        .rotate:hover { transform: rotate(360deg); transition: all 0.5s ease-in-out 0s; }
+        .imgshadow { filter: drop-shadow(2px 2px 5px rgba(0, 0, 0, 0.6)); }
+        .lightshadow { filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.3)); }
+
+        @keyframes popin {
+            0%, 30% { transform: translate(0px, 0px); }
+            40%, 90% { transform: translate(0px, -1.5em); }
+        }
+
+        /* --- Social Icons --- */
+        .social {
+            color: #27ae60;
+            font-size: 1.5rem;
+            margin-right: 0.5rem;
+            transition: 0.2s;
+        }
+        .social:hover { color: #1abc9c; }
+
+        /* --- CSS Horizontal Carousel --- */
+        .projects-carousel {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            gap: 1.5rem;
+            padding-bottom: 1rem;
+            -webkit-overflow-scrolling: touch;
+        }
+        .projects-carousel::-webkit-scrollbar { height: 8px; }
+        .projects-carousel::-webkit-scrollbar-track { background: var(--scrollbarBG); }
+        .projects-carousel::-webkit-scrollbar-thumb { background-color: var(--thumbBG); border-radius: 4px; }
+        .carousel-item {
+            flex: 0 0 320px;
+            scroll-snap-align: start;
+        }
+        @media (max-width: 768px) {
+            .carousel-item { flex: 0 0 85vw; } 
         }
     </style>
 </head>
@@ -215,4 +325,5 @@
         </div>
     </section>
 </body>
+
 </html>

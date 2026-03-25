@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>How to fix the iFi Uno DAC (random pops issue) | Robert aka ‘revox’</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="How to fix the iFi Uno DAC (random pops issue)" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="A step-by-step repair guide for the iFi Uno DAC. Fixing the common connection random connection / crackles and pops issue." />
+<meta property="og:description" content="A step-by-step repair guide for the iFi Uno DAC. Fixing the common connection random connection / crackles and pops issue." />
+<link rel="canonical" href="http://localhost:4000/2026/02/04/fixing-ifi-uno-dac.html" />
+<meta property="og:url" content="http://localhost:4000/2026/02/04/fixing-ifi-uno-dac.html" />
+<meta property="og:site_name" content="Robert aka ‘revox’" />
+<meta property="og:image" content="http://localhost:4000/assets/ifi-uno/ifi-uno-fix.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2026-02-04T00:00:00+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="http://localhost:4000/assets/ifi-uno/ifi-uno-fix.png" />
+<meta property="twitter:title" content="How to fix the iFi Uno DAC (random pops issue)" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-02-04T00:00:00+00:00","datePublished":"2026-02-04T00:00:00+00:00","description":"A step-by-step repair guide for the iFi Uno DAC. Fixing the common connection random connection / crackles and pops issue.","headline":"How to fix the iFi Uno DAC (random pops issue)","image":"http://localhost:4000/assets/ifi-uno/ifi-uno-fix.png","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2026/02/04/fixing-ifi-uno-dac.html"},"url":"http://localhost:4000/2026/02/04/fixing-ifi-uno-dac.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <link rel="icon" href="/assets/ico.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://wallet.duinocoin.com/css/bulma-prefers-dark.min.css">
+    <script src="https://wallet.duinocoin.com/js/fontawesome.js"></script>
+    <meta name="google-site-verification" content="3wUZVZwyfxVux3Mu9lrI61BDxB2dVXkSlNkgy8at_ps" />
+
+    <style>
+        .link {
+            color: #27ae60;
+            text-decoration: none;
+            background-image: linear-gradient(90deg, #2ecc71, #1abc9c, #2ecc71);
+            background-repeat: no-repeat;
+            background-position: bottom left;
+            background-size: 0% 2px;
+            transition: background-size 400ms ease-in-out;
+            transition: 0.5s;
+        }
+
+        .card {
+            border-radius: 25px 4px 25px 4px !important;
+        }
+
+        .card > .card-image > .image > img {
+            border-radius: 25px 4px 4px 4px !important;
+        }
+
+        .avatar {
+            border-radius: 25px 4px 25px 4px;
+            zoom: 1.3;
+        }
+
+        .link:hover {
+            color: #1abc9c;
+            background-size: 100% 2px;
+        }
+
+         #projektysmall {
+            max-height: 1200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        @media (prefers-color-scheme: light) {
+            html {
+                background-color: #FBF7F4;
+            }
+
+            .heading {
+                color: #1e272e;
+            }
+
+            #projektysmall:after {
+                content: "";
+                position: absolute;
+                z-index: 1;
+                bottom: 0;
+                left: 0;
+                pointer-events: none;
+                background-image: linear-gradient(to bottom, #FBF7F400, #FBF7F4EE);
+                width: 100%;
+                height: 14em;
+            }
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .heading {
+                color: #fbfbfb;
+            }
+
+            #projektysmall:after {
+                content: "";
+                position: absolute;
+                z-index: 1;
+                bottom: 0;
+                left: 0;
+                pointer-events: none;
+                background-image: linear-gradient(to bottom, #17181C00, #17181CEE);
+                width: 100%;
+                height: 14em;
+            }
+        }
+
+
+        @media (prefers-color-scheme: light) {
+            html {
+                background-color: #FBF7F4;
+            }
+
+            .heading {
+                color: #1e272e;
+            }
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .heading {
+                color: #fbfbfb;
+            }
+
+        }
+
+        @media only screen and (min-width: 768px) {
+            html {
+                zoom: 1.1;
+            }
+
+        }
+
+        .heading {
+            margin-bottom: 0.5em !important;
+        }
+
+
+        @media (prefers-color-scheme: dark) {
+            html {
+                --scrollbarBG: #rgb(23, 24, 28);
+                --thumbBG: #1DA64C;
+            }
+        }
+
+        *::-webkit-scrollbar {
+            width: 11px;
+        }
+
+        * {
+            scrollbar-width: thin;
+            scrollbar-color: var(--thumbBG) var(--scrollbarBG);
+        }
+
+        *::-webkit-scrollbar-track {
+            background: var(--scrollbarBG);
+        }
+
+        *::-webkit-scrollbar-thumb {
+            background-color: var(--thumbBG);
+            border-radius: 6px;
+            border: 3px solid var(--scrollbarBG);
+        }
+
+        /*.content img {
+            max-height: 500px;  /* Limits height so it fits on a laptop screen */
+            width: auto;        /* Maintains aspect ratio */
+            display: block;     /* Allows centering */
+            margin: 0 auto;     /* Centers the image horizontally */
+            border-radius: 8px; /* Adds a nice rounded corner (optional) */
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Adds a subtle shadow (optional) */
+        }
+
+        /* On mobile, we ignore the height limit and just let it fit the width */
+        @media screen and (max-width: 768px) {
+            .content img {
+                max-height: none;
+                width: 100%;
+            }
+        }*/
+
+        /* 1. If a paragraph has an image inside it, center everything (including the caption) */
+        .content p:has(img) {
+            text-align: center;
+        }
+
+        /* 2. Style the caption text (italics next to images) to look professional */
+        .content p:has(img) em {
+            display: block;          /* Forces the text to sit UNDER the image */
+            margin-top: 0.5rem;      /* Adds a little space between image and text */
+            font-size: 0.9em;        /* Makes caption slightly smaller */
+            color: #666;             /* Makes caption grey */
+            font-style: italic;
+        }
+
+        @font-face {
+            font-family: 'BubbleGum';
+            src: url('/assets/BubbbleGum-Black.otf') format('opentype');
+            font-display: swap;
+        }
+
+        .revox-logo {
+            font-family: 'BubbleGum', sans-serif;
+            font-size: 5rem; 
+            color: #ffffff;
+            text-decoration: none;
+            line-height: 1;
+            display: inline-block;
+            margin-bottom: 20px;
+            
+           
+            animation: neon-green-pulse 3s infinite alternate;
+        }
+
+        @keyframes neon-green-pulse {
+            0% {
+                text-shadow: 
+                    0 0 5px  #27ae60, 
+                    3px 3px 0px #1e272e,
+                    0 0 15px #2ecc71; 
+                transform: scale(1);
+            }
+            100% {
+                text-shadow: 
+                    0 0 10px #2ecc71,  
+                    3px 3px 0px #1e272e,
+                    0 0 30px #00ff88, 
+                    0 0 50px #27ae60;  
+                transform: scale(1.02); 
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .revox-logo {
+                font-size: 3.5rem;
+            }
+        }
+
+        #nick_container {
+            height: 1.3em;
+            overflow: hidden;
+            display: inline-block;
+            vertical-align: bottom;
+        }
+        #nick {
+            float: right;
+            display: inline-block;
+            animation: popin 2s ease-in-out infinite;
+        }
+        .rotate { transition: all 0.2s ease-in-out 0s; }
+        .rotate:hover { transform: rotate(360deg); transition: all 0.5s ease-in-out 0s; }
+        .imgshadow { filter: drop-shadow(2px 2px 5px rgba(0, 0, 0, 0.6)); }
+        .lightshadow { filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.3)); }
+
+        @keyframes popin {
+            0%, 30% { transform: translate(0px, 0px); }
+            40%, 90% { transform: translate(0px, -1.5em); }
+        }
+
+        /* --- Social Icons --- */
+        .social {
+            color: #27ae60;
+            font-size: 1.5rem;
+            margin-right: 0.5rem;
+            transition: 0.2s;
+        }
+        .social:hover { color: #1abc9c; }
+
+        /* --- CSS Horizontal Carousel --- */
+        .projects-carousel {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            gap: 1.5rem;
+            padding-bottom: 1rem;
+            -webkit-overflow-scrolling: touch;
+        }
+        .projects-carousel::-webkit-scrollbar { height: 8px; }
+        .projects-carousel::-webkit-scrollbar-track { background: var(--scrollbarBG); }
+        .projects-carousel::-webkit-scrollbar-thumb { background-color: var(--thumbBG); border-radius: 4px; }
+        .carousel-item {
+            flex: 0 0 320px;
+            scroll-snap-align: start;
+        }
+        @media (max-width: 768px) {
+            .carousel-item { flex: 0 0 85vw; } 
+        }
+    </style>
+</head>
+
+<body>
+    <section class="section">
+        <div class="container">
+            <div class="column is-vcentered">
+                <div class="has-text-centered">
+                    <a href="/" class="revox-logo">revox</a>
+                </div>
+                <div class="column">
+                    
+                        <h1 class="title">How to fix the iFi Uno DAC (random pops issue)</h1>
+                    
+                    
+                    <div class="content">
+                        <p>If you are experiencing issues with your <strong>iFi Uno DAC</strong>, especially audio cutting out randomly for a split second with a pop in your headphones, you aren’t alone. I recently fixed mine and documented the process.</p>
+
+<h3 id="tools-required">Tools Required</h3>
+<ul>
+  <li>Soldering iron</li>
+  <li>2mm hex key screwdriver</li>
+  <li>1.5mm hex key screwdriver</li>
+  <li>A pair of pliers</li>
+  <li>Side cutters</li>
+</ul>
+
+<h3 id="components-required">Components required</h3>
+<ul>
+  <li>47μF - 220μF 6.3V (or higher) electrolytic capacitor</li>
+</ul>
+
+<h2 id="the-issue">The issue</h2>
+<p>Ever since I bought the DAC from my friend, there were some random pops happening while playing audio. My friend actually reduced the issue by using a high quality USB 3.0 cable before he moved to a different DAC, but for me the changing cables didn’t help. I noticed this was happening mostly while actually doing stuff on the computer, and less when it was idle, so I figured it must be either something driver related, or simply a power issue.</p>
+
+<p>I have searched the internet to check if any other users were having a similar issue, and this proved to be <a href="https://www.reddit.com/r/iFiaudio/comments/1aur7gk/ifi_uno_random_popcrackling_noise_issue/">quite a common one</a>. Unfortunately none of the webpages I visited suggested a fix. From what I could find, the issue is known by ifi and <em>“they were working on fixing it”</em>, and the suggested solution was to change the cables and reinstall the drivers. Unfortunately, neither solution has worked for me, so I decided to take a look inside to see if there’s anything that prove my unstable power theory.</p>
+
+<h3 id="step-1-disassembly">Step 1: Disassembly</h3>
+<p>There are three hex key screws on the back that you need to unscrew. One of them at the top is for a 2mm socket, and the two other are for a 1.5mm socket.</p>
+
+<p><img src="/assets/ifi-uno/back-screws.jpg" alt="Back screws of the ifi Uno" />
+<em>Figure 1: Why did they use two separate screw sizes?</em></p>
+
+<p>Once you’re done with those, you also need to take off the volume knob that hides a potentiometer knob with a nut. The knob is push-fit, so it may take some force to get out. For unscrewing the nut you can just use a pair of pliers.</p>
+
+<p><img src="/assets/ifi-uno/potentiometer-nut.jpg" alt="Front side of the DAC" />
+<em>Figure 2: Front of the ifi Uno with the knob and nut removed.</em></p>
+
+<p>The board should come out nicely from the back once you’re done.</p>
+
+<h3 id="step-2-the-fix">Step 2: The fix</h3>
+<p>After taking the board out, I have inspected the PCB. The build quality seems very high. A lot of passive components on both sides and a few chips. I didn’t go into detail studying each one, instead I took a multimeter and measured the voltages on all electrolytic caps. I have found the board operates on three voltages: 5V and 3.3V &amp; 1.8V generated internally.</p>
+
+<p>While measuring, I turned my eye onto an unpopulated place for an electrolytic capacitor next to the volume potentiometer. Measuring the voltage on those pins, it looked like it’s related to the 5V rail and this was the only place on the board without an electrolytic capacitor, so I figured it may be a possible culprit.</p>
+
+<p>I grabbed a random 47μF capacitor rated at, I believe, 16V (anything higher than 6.3V will work) and soldered it in place of the missing component, making sure the polarity matched (+ on the board is the positive, and the side with black — stripes on the capacitor is negative).</p>
+
+<p><img src="/assets/ifi-uno/missing-capacitor.jpg" alt="Close-up of the board with a capacitor soldered" />
+<em>Figure 3: A 47μF capacitor soldered in the missing spot.</em></p>
+
+<p><img src="/assets/ifi-uno/soldering-bottom.jpg" alt="Back side of the PCB after soldering" />
+<em>Figure 4: Back side of the PCB after soldering.</em></p>
+
+<h3 id="step-3-the-tests">Step 3: The tests</h3>
+<p>Having soldered the “missing” capacitor, I put back everything into the housing and connected the DAC to my PC and headphones. Not expecting much, I started playing some audio like I usually do, and surprisingly, the <strong>issue seems to have been fixed!</strong>. I have been using the DAC for over 3 days now with the fix and <b>I haven’t heard a split second of dropped audio or a pop</b>.</p>
+
+<p><img src="/assets/ifi-uno/ifi-uno-fix.png" alt="Back side of the PCB after soldering" /></p>
+
+<h3 id="conclusion">Conclusion</h3>
+<p>Whether it was a cost saving measure or a production oversight, it looks like adding a capacitor seems to, at least for me, fix the random pops coming out from the ifi Uno DAC. If you have issues with your own, give this mod a try. The only thing you really need is some basic soldering experience and an electrolytic capacitor that will fit.</p>
+
+<p>Thank you for reading this blog post!</p>
+
+<p>Cheers,<br />
+Robert</p>
+
+                    </div>
+
+                    
+                    <hr style="margin-top: 3rem; margin-bottom: 2rem;">
+                    <h3 class="title is-4">Comments</h3>
+                    <script src="https://giscus.app/client.js"
+                            data-repo="revoxhere/revoxhere.github.io"
+                            data-repo-id="R_kgDOGOkbkQ"
+                            data-category="Announcements"
+                            data-category-id="DIC_kwDOGOkbkc4C3Uqt"
+                            data-mapping="url"
+                            data-strict="0"
+                            data-reactions-enabled="1"
+                            data-emit-metadata="0"
+                            data-input-position="bottom"
+                            data-theme="preferred_color_scheme"
+                            data-lang="en"
+                            data-loading="lazy"
+                            crossorigin="anonymous"
+                            async>
+                    </script>
+                    
+
+                    
+                    <div style="text-align: center; margin-top: 40px; opacity: 0.7;">
+                        <p class="is-size-7">
+                            <img src="https://hits.sh/revoxhere.github.io/2026/02/04/fixing-ifi-uno-dac.html.svg?label=&color=27ae60&labelColor=1e272e" 
+                                 style="vertical-align: middle; height: 20px; box-shadow: none; border-radius: 0;">
+                        </p>
+                    </div>
+                    
+
+                    <br>
+                    
+                        <a href="/" class="link">Back to the homepage</a>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

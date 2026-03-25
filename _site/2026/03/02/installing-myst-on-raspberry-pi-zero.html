@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>How to install Myst on a Raspberry Pi Zero | Robert aka ‘revox’</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="How to install Myst on a Raspberry Pi Zero" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Guide to compiling and installing a Mysterium node on a Raspberry Pi Zero V1.3 (first gen)." />
+<meta property="og:description" content="Guide to compiling and installing a Mysterium node on a Raspberry Pi Zero V1.3 (first gen)." />
+<link rel="canonical" href="http://localhost:4000/2026/03/02/installing-myst-on-raspberry-pi-zero.html" />
+<meta property="og:url" content="http://localhost:4000/2026/03/02/installing-myst-on-raspberry-pi-zero.html" />
+<meta property="og:site_name" content="Robert aka ‘revox’" />
+<meta property="og:image" content="http://localhost:4000/assets/rpi-zero-myst/thumb.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2026-03-02T00:00:00+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="http://localhost:4000/assets/rpi-zero-myst/thumb.png" />
+<meta property="twitter:title" content="How to install Myst on a Raspberry Pi Zero" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-03-02T00:00:00+00:00","datePublished":"2026-03-02T00:00:00+00:00","description":"Guide to compiling and installing a Mysterium node on a Raspberry Pi Zero V1.3 (first gen).","headline":"How to install Myst on a Raspberry Pi Zero","image":"http://localhost:4000/assets/rpi-zero-myst/thumb.png","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2026/03/02/installing-myst-on-raspberry-pi-zero.html"},"url":"http://localhost:4000/2026/03/02/installing-myst-on-raspberry-pi-zero.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <link rel="icon" href="/assets/ico.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://wallet.duinocoin.com/css/bulma-prefers-dark.min.css">
+    <script src="https://wallet.duinocoin.com/js/fontawesome.js"></script>
+    <meta name="google-site-verification" content="3wUZVZwyfxVux3Mu9lrI61BDxB2dVXkSlNkgy8at_ps" />
+
+    <style>
+        .link {
+            color: #27ae60;
+            text-decoration: none;
+            background-image: linear-gradient(90deg, #2ecc71, #1abc9c, #2ecc71);
+            background-repeat: no-repeat;
+            background-position: bottom left;
+            background-size: 0% 2px;
+            transition: background-size 400ms ease-in-out;
+            transition: 0.5s;
+        }
+
+        .card {
+            border-radius: 25px 4px 25px 4px !important;
+        }
+
+        .card > .card-image > .image > img {
+            border-radius: 25px 4px 4px 4px !important;
+        }
+
+        .avatar {
+            border-radius: 25px 4px 25px 4px;
+            zoom: 1.3;
+        }
+
+        .link:hover {
+            color: #1abc9c;
+            background-size: 100% 2px;
+        }
+
+         #projektysmall {
+            max-height: 1200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        @media (prefers-color-scheme: light) {
+            html {
+                background-color: #FBF7F4;
+            }
+
+            .heading {
+                color: #1e272e;
+            }
+
+            #projektysmall:after {
+                content: "";
+                position: absolute;
+                z-index: 1;
+                bottom: 0;
+                left: 0;
+                pointer-events: none;
+                background-image: linear-gradient(to bottom, #FBF7F400, #FBF7F4EE);
+                width: 100%;
+                height: 14em;
+            }
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .heading {
+                color: #fbfbfb;
+            }
+
+            #projektysmall:after {
+                content: "";
+                position: absolute;
+                z-index: 1;
+                bottom: 0;
+                left: 0;
+                pointer-events: none;
+                background-image: linear-gradient(to bottom, #17181C00, #17181CEE);
+                width: 100%;
+                height: 14em;
+            }
+        }
+
+
+        @media (prefers-color-scheme: light) {
+            html {
+                background-color: #FBF7F4;
+            }
+
+            .heading {
+                color: #1e272e;
+            }
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .heading {
+                color: #fbfbfb;
+            }
+
+        }
+
+        @media only screen and (min-width: 768px) {
+            html {
+                zoom: 1.1;
+            }
+
+        }
+
+        .heading {
+            margin-bottom: 0.5em !important;
+        }
+
+
+        @media (prefers-color-scheme: dark) {
+            html {
+                --scrollbarBG: #rgb(23, 24, 28);
+                --thumbBG: #1DA64C;
+            }
+        }
+
+        *::-webkit-scrollbar {
+            width: 11px;
+        }
+
+        * {
+            scrollbar-width: thin;
+            scrollbar-color: var(--thumbBG) var(--scrollbarBG);
+        }
+
+        *::-webkit-scrollbar-track {
+            background: var(--scrollbarBG);
+        }
+
+        *::-webkit-scrollbar-thumb {
+            background-color: var(--thumbBG);
+            border-radius: 6px;
+            border: 3px solid var(--scrollbarBG);
+        }
+
+        /*.content img {
+            max-height: 500px;  /* Limits height so it fits on a laptop screen */
+            width: auto;        /* Maintains aspect ratio */
+            display: block;     /* Allows centering */
+            margin: 0 auto;     /* Centers the image horizontally */
+            border-radius: 8px; /* Adds a nice rounded corner (optional) */
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Adds a subtle shadow (optional) */
+        }
+
+        /* On mobile, we ignore the height limit and just let it fit the width */
+        @media screen and (max-width: 768px) {
+            .content img {
+                max-height: none;
+                width: 100%;
+            }
+        }*/
+
+        /* 1. If a paragraph has an image inside it, center everything (including the caption) */
+        .content p:has(img) {
+            text-align: center;
+        }
+
+        /* 2. Style the caption text (italics next to images) to look professional */
+        .content p:has(img) em {
+            display: block;          /* Forces the text to sit UNDER the image */
+            margin-top: 0.5rem;      /* Adds a little space between image and text */
+            font-size: 0.9em;        /* Makes caption slightly smaller */
+            color: #666;             /* Makes caption grey */
+            font-style: italic;
+        }
+
+        @font-face {
+            font-family: 'BubbleGum';
+            src: url('/assets/BubbbleGum-Black.otf') format('opentype');
+            font-display: swap;
+        }
+
+        .revox-logo {
+            font-family: 'BubbleGum', sans-serif;
+            font-size: 5rem; 
+            color: #ffffff;
+            text-decoration: none;
+            line-height: 1;
+            display: inline-block;
+            margin-bottom: 20px;
+            
+           
+            animation: neon-green-pulse 3s infinite alternate;
+        }
+
+        @keyframes neon-green-pulse {
+            0% {
+                text-shadow: 
+                    0 0 5px  #27ae60, 
+                    3px 3px 0px #1e272e,
+                    0 0 15px #2ecc71; 
+                transform: scale(1);
+            }
+            100% {
+                text-shadow: 
+                    0 0 10px #2ecc71,  
+                    3px 3px 0px #1e272e,
+                    0 0 30px #00ff88, 
+                    0 0 50px #27ae60;  
+                transform: scale(1.02); 
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .revox-logo {
+                font-size: 3.5rem;
+            }
+        }
+
+        #nick_container {
+            height: 1.3em;
+            overflow: hidden;
+            display: inline-block;
+            vertical-align: bottom;
+        }
+        #nick {
+            float: right;
+            display: inline-block;
+            animation: popin 2s ease-in-out infinite;
+        }
+        .rotate { transition: all 0.2s ease-in-out 0s; }
+        .rotate:hover { transform: rotate(360deg); transition: all 0.5s ease-in-out 0s; }
+        .imgshadow { filter: drop-shadow(2px 2px 5px rgba(0, 0, 0, 0.6)); }
+        .lightshadow { filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.3)); }
+
+        @keyframes popin {
+            0%, 30% { transform: translate(0px, 0px); }
+            40%, 90% { transform: translate(0px, -1.5em); }
+        }
+
+        /* --- Social Icons --- */
+        .social {
+            color: #27ae60;
+            font-size: 1.5rem;
+            margin-right: 0.5rem;
+            transition: 0.2s;
+        }
+        .social:hover { color: #1abc9c; }
+
+        /* --- CSS Horizontal Carousel --- */
+        .projects-carousel {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            gap: 1.5rem;
+            padding-bottom: 1rem;
+            -webkit-overflow-scrolling: touch;
+        }
+        .projects-carousel::-webkit-scrollbar { height: 8px; }
+        .projects-carousel::-webkit-scrollbar-track { background: var(--scrollbarBG); }
+        .projects-carousel::-webkit-scrollbar-thumb { background-color: var(--thumbBG); border-radius: 4px; }
+        .carousel-item {
+            flex: 0 0 320px;
+            scroll-snap-align: start;
+        }
+        @media (max-width: 768px) {
+            .carousel-item { flex: 0 0 85vw; } 
+        }
+    </style>
+</head>
+
+<body>
+    <section class="section">
+        <div class="container">
+            <div class="column is-vcentered">
+                <div class="has-text-centered">
+                    <a href="/" class="revox-logo">revox</a>
+                </div>
+                <div class="column">
+                    
+                        <h1 class="title">How to install Myst on a Raspberry Pi Zero</h1>
+                    
+                    
+                    <div class="content">
+                        <p>Hello again!</p>
+
+<p>This time I’d like to share my journey with installing a Mysterium (MYST) node on the first gen RPi Zero.</p>
+
+<p>First of all, I think I should mention that according to the official docs, running a node on an original, first-gen Pi Zero is <strong>not supported</strong>.</p>
+
+<p>The official binaries are built for ARMv7 and ARM64. The original Pi Zero runs on an older ARMv6 architecture. If you try to run the standard installer, the Pi will spit out an “Illegal Instruction” error. Zero only has a single-core 1GHz CPU and 512MB of RAM, which is below the officially stated 1GB minimum.</p>
+
+<p>Knowing all that and having a spare Pi Zero V1.3 sitting in a drawer, I decided to try my luck in getting it to run anyway, mainly for fun. My first tries were actually with Honeygain, but that proved to be more difficult due to stricter connection requirements and overall system demands.</p>
+
+<hr />
+
+<h2 id="step-1-the-cross-compile">Step 1: The cross-compile</h2>
+
+<p>Compiling the binary on the Pi is probably possible, but due to the limited resources, it would take a lot of time. To save time I suggest doing this on a different Linux PC or in WSL.</p>
+
+<ol>
+  <li>Install Go (Golang) on your PC.</li>
+  <li>Clone the Mysterium node repository:
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/mysteriumnetwork/node.git
+<span class="nb">cd </span>node
+</code></pre></div>    </div>
+  </li>
+  <li>Tell the Go compiler to target the ARMv6 architecture.
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">env </span><span class="nv">GOOS</span><span class="o">=</span>linux <span class="nv">GOARCH</span><span class="o">=</span>arm <span class="nv">GOARM</span><span class="o">=</span>6 go build <span class="nt">-o</span> myst ./cmd/myst
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h3 id="pre-built-binary">Pre-built binary</h3>
+
+<p>Alternatively, if you don’t want to compile the binary yourself, you can download the one I compiled <strong><a href="/assets/rpi-zero-myst/myst">here</a></strong>.</p>
+
+<p>You should now have a custom-built Mysterium binary that won’t instantly crash your Pi.</p>
+
+<hr />
+
+<h2 id="step-2-preparing-raspbian">Step 2: Preparing Raspbian</h2>
+
+<p>Since the Pi Zero has 512MB of RAM, and Mysterium tries to do a heavy WireGuard encryption handshake, the Linux <em>out of memory</em> killer will kill the process sooner or later.</p>
+
+<p>I suggest using the CLI version (no desktop) version of Raspbian, but it should work in the desktop one too. YMMV.</p>
+
+<ol>
+  <li>Install the necessary networking tools:
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt update <span class="o">&amp;&amp;</span> <span class="nb">sudo </span>apt <span class="nb">install</span> <span class="nt">-y</span> wireguard iptables ca-certificates
+</code></pre></div>    </div>
+  </li>
+  <li>Increase the swap file to 2GB. Theoretically you don’t need that much, but your Pi will thank you if you intend on using it for anything else than the node.
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>dphys-swapfile swapoff
+<span class="nb">sudo </span>nano /etc/dphys-swapfile
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<p>Change <code class="language-plaintext highlighter-rouge">CONF_SWAPSIZE=100</code> to <code class="language-plaintext highlighter-rouge">CONF_SWAPSIZE=2048</code>.</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>dphys-swapfile setup
+<span class="nb">sudo </span>dphys-swapfile swapon
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="step-3-deployment">Step 3: Deployment</h2>
+
+<p>Connect the SD card to your PC or use <code class="language-plaintext highlighter-rouge">scp</code> to copy your compiled <code class="language-plaintext highlighter-rouge">myst</code> file to the Pi Zero (e.g. into <code class="language-plaintext highlighter-rouge">/home/pi/</code>).</p>
+
+<p>Make it executable and run it for the first time:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">chmod</span> +x ./myst
+<span class="nb">sudo</span> ./myst service <span class="nt">--agreed-terms-and-conditions</span>
+</code></pre></div></div>
+
+<p><em>(Run with <code class="language-plaintext highlighter-rouge">sudo</code> so it can create the VPN network interfaces).</em></p>
+
+<p>Open a browser on your main PC and navigate to <code class="language-plaintext highlighter-rouge">http://&lt;YOUR_PI_IP&gt;:4449</code> to claim your node.</p>
+
+<hr />
+
+<h2 id="step-4-set-up-the-node">Step 4: Set up the node</h2>
+
+<p>This is where you may question your life choices. You will likely see <strong>“Monitoring Failed”</strong> and if you click “Test Node” in the <a href="https://my.mystnodes.com/nodes">Myst dashboard UI</a>, you will get an <strong>“Internal Server Error”</strong>.</p>
+
+<p>Here are the golden rules for a Pi Zero node I found while getting mine to work:</p>
+
+<h3 id="1-forward-your-udp-ports">1. Forward your UDP ports</h3>
+
+<p>The Pi Zero is too weak to handle standard NAT hole-punching reliably. You <em>must</em> manually port forward on your router.</p>
+
+<ul>
+  <li>Forward UDP ports <code class="language-plaintext highlighter-rouge">56000-56100</code> to your Pi’s static IP.</li>
+  <li>In the Mysterium Node UI Settings (Advanced), set the UDP port range to <code class="language-plaintext highlighter-rouge">56000-56100</code>.</li>
+</ul>
+
+<p><img src="/assets/rpi-zero-myst/node-ports.png" alt="Node settings setup" />
+<em>Figure 1: UDP ports setting in Node UI.</em></p>
+
+<p>Do not worry if you are behind a CGNAT (like me) - it should work either way.</p>
+
+<h3 id="2-enable-network-modules">2. Enable network modules</h3>
+
+<p>While this may be optional, my node didn’t start working properly until I applied these kernel modules:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>modprobe tun
+<span class="nb">sudo </span>modprobe wireguard
+<span class="nb">sudo </span>modprobe ifb
+<span class="nb">sudo </span>modprobe sch_netem
+</code></pre></div></div>
+
+<h3 id="3-have-patience">3. Have patience</h3>
+
+<p>The Mysterium dashboard is slow to update. If you fix a network issue, it can take up to an hour for the status to flip from “Monitoring Failed” to “Online.” Walk away, grab a coffee, and stop staring at it.</p>
+
+<p><img src="/assets/rpi-zero-myst/node-status.png" alt="Node status" />
+<em>Figure 2: Running node status.</em></p>
+
+<p><img src="/assets/rpi-zero-myst/node-sessions.png" alt="Node connections" />
+<em>Figure 3: Proof of incoming connections.</em></p>
+
+<hr />
+
+<h2 id="the-verdict">The Verdict</h2>
+
+<p>Can you run a Mysterium Node on an original Raspberry Pi Zero? <strong>Sure.</strong>
+Will it make you rich? <strong>Absolutely not.</strong> Because of the CPU bottleneck, you will max out at around 5-10 Mbps throughput. You won’t get heavy Netflix streaming traffic, but you <em>will</em> reliably catch lightweight B2B traffic and web scraping tasks.</p>
+
+<p>You can create a systemd service to start the program automatically at boot, which is what I did, but I’m leaving this for the reader as homework.</p>
+
+<p><img src="/assets/rpi-zero-myst/thumb.png" alt="Thumbnail image" /></p>
+
+<p>Once again, thank you for reading this blog post. I have added a comments section to the page in case someone who stumbles on my page would like to leave one.</p>
+
+<p>Cheers,<br />
+Robert</p>
+
+                    </div>
+
+                    
+                    <hr style="margin-top: 3rem; margin-bottom: 2rem;">
+                    <h3 class="title is-4">Comments</h3>
+                    <script src="https://giscus.app/client.js"
+                            data-repo="revoxhere/revoxhere.github.io"
+                            data-repo-id="R_kgDOGOkbkQ"
+                            data-category="Announcements"
+                            data-category-id="DIC_kwDOGOkbkc4C3Uqt"
+                            data-mapping="url"
+                            data-strict="0"
+                            data-reactions-enabled="1"
+                            data-emit-metadata="0"
+                            data-input-position="bottom"
+                            data-theme="preferred_color_scheme"
+                            data-lang="en"
+                            data-loading="lazy"
+                            crossorigin="anonymous"
+                            async>
+                    </script>
+                    
+
+                    
+                    <div style="text-align: center; margin-top: 40px; opacity: 0.7;">
+                        <p class="is-size-7">
+                            <img src="https://hits.sh/revoxhere.github.io/2026/03/02/installing-myst-on-raspberry-pi-zero.html.svg?label=&color=27ae60&labelColor=1e272e" 
+                                 style="vertical-align: middle; height: 20px; box-shadow: none; border-radius: 0;">
+                        </p>
+                    </div>
+                    
+
+                    <br>
+                    
+                        <a href="/" class="link">Back to the homepage</a>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
