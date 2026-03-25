@@ -144,7 +144,7 @@
             border: 3px solid var(--scrollbarBG);
         }
 
-        /*.content img {
+        .content img {
             max-height: 500px;  /* Limits height so it fits on a laptop screen */
             width: auto;        /* Maintains aspect ratio */
             display: block;     /* Allows centering */
@@ -159,14 +159,14 @@
                 max-height: none;
                 width: 100%;
             }
-        }*/
+        }
 
-        /* 1. If a paragraph has an image inside it, center everything (including the caption) */
+        /* 1. If a paragraph has an image inside it, center everything */
         .content p:has(img) {
             text-align: center;
         }
 
-        /* 2. Style the caption text (italics next to images) to look professional */
+        /* 2. italics next to images */
         .content p:has(img) em {
             display: block;          /* Forces the text to sit UNDER the image */
             margin-top: 0.5rem;      /* Adds a little space between image and text */
@@ -218,28 +218,11 @@
             }
         }
 
-        #nick_container {
-            height: 1.3em;
-            overflow: hidden;
-            display: inline-block;
-            vertical-align: bottom;
-        }
-        #nick {
-            float: right;
-            display: inline-block;
-            animation: popin 2s ease-in-out infinite;
-        }
         .rotate { transition: all 0.2s ease-in-out 0s; }
         .rotate:hover { transform: rotate(360deg); transition: all 0.5s ease-in-out 0s; }
         .imgshadow { filter: drop-shadow(2px 2px 5px rgba(0, 0, 0, 0.6)); }
         .lightshadow { filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.3)); }
 
-        @keyframes popin {
-            0%, 30% { transform: translate(0px, 0px); }
-            40%, 90% { transform: translate(0px, -1.5em); }
-        }
-
-        /* --- Social Icons --- */
         .social {
             color: #27ae60;
             font-size: 1.5rem;
@@ -247,26 +230,7 @@
             transition: 0.2s;
         }
         .social:hover { color: #1abc9c; }
-
-        /* --- CSS Horizontal Carousel --- */
-        .projects-carousel {
-            display: flex;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            gap: 1.5rem;
-            padding-bottom: 1rem;
-            -webkit-overflow-scrolling: touch;
-        }
-        .projects-carousel::-webkit-scrollbar { height: 8px; }
-        .projects-carousel::-webkit-scrollbar-track { background: var(--scrollbarBG); }
-        .projects-carousel::-webkit-scrollbar-thumb { background-color: var(--thumbBG); border-radius: 4px; }
-        .carousel-item {
-            flex: 0 0 320px;
-            scroll-snap-align: start;
-        }
-        @media (max-width: 768px) {
-            .carousel-item { flex: 0 0 85vw; } 
-        }
+        .social>span>img:hover { filter: hue-rotate(40deg); }
     </style>
 </head>
 
