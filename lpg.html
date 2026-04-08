@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Kosztów: Benzyna vs LPG</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --success: #16a34a;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text: #1e293b;
+            --border: #e2e8f0;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            display: flex;
+            justify-content: center;
+            padding: 2rem;
+            margin: 0;
+        }
+        .container {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            width: 100%;
+            max-width: 500px;
+        }
+        h1 {
+            font-size: 1.5rem;
+            text-align: center;
+            margin-top: 0;
+            color: var(--primary);
+        }
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-size: 1rem;
+            transition: border-color 0.2s;
+        }
+        input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+        .row {
+            display: flex;
+            gap: 1rem;
+        }
+        .row .form-group {
+            flex: 1;
+        }
+        button {
+            width: 100%;
+            padding: 0.875rem;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            margin-top: 1rem;
+        }
+        button:hover {
+            background-color: #1d4ed8;
+        }
+        .results {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 2px dashed var(--border);
+            display: none;
+        }
+        .result-box {
+            background: #f1f5f9;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        .result-box span {
+            display: block;
+            font-size: 0.875rem;
+            color: #64748b;
+        }
+        .result-box strong {
+            display: block;
+            font-size: 1.25rem;
+            color: var(--text);
+            margin-top: 0.25rem;
+        }
+        .savings {
+            background: #dcfce7;
+            border: 1px solid #bbf7d0;
+        }
+        .savings strong {
+            color: var(--success);
+        }
+        .info-text {
+            font-size: 0.875rem;
+            text-align: center;
+            color: #475569;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Kalkulator Benzyna vs LPG</h1>
+    
+    <div class="row">
+        <div class="form-group">
+            <label>Cena Benzyny (zł/l)</label>
+            <input type="number" id="pricePetrol" step="0.01" value="6.50">
+        </div>
+        <div class="form-group">
+            <label>Cena LPG (zł/l)</label>
+            <input type="number" id="priceLpg" step="0.01" value="2.90">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group">
+            <label>Spalanie Benzyny (l/100km)</label>
+            <input type="number" id="consPetrol" step="0.1" value="8.0">
+        </div>
+        <div class="form-group">
+            <label>Spalanie LPG (l/100km)</label>
+            <input type="number" id="consLpg" step="0.1" value="9.5">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Dystans do przełączenia na gaz (km)</label>
+        <input type="number" id="switchDist" step="0.1" value="2.0" placeholder="np. 2">
+    </div>
+
+    <div class="form-group">
+        <label>Dystans planowanej trasy (km)</label>
+        <input type="number" id="tripDist" step="1" value="50" placeholder="np. 50">
+    </div>
+
+    <button onclick="calculate()">Oblicz Koszty</button>
+
+    <div class="results" id="resultsArea">
+        <div class="row">
+            <div class="result-box">
+                <span>Koszt samej benzyny</span>
+                <strong id="resPetrol">0.00 zł</strong>
+            </div>
+            <div class="result-box">
+                <span>Koszt jazdy z LPG</span>
+                <strong id="resLpg">0.00 zł</strong>
+            </div>
+        </div>
+        <div class="result-box savings">
+            <span>Twoja oszczędność na tej trasie</span>
+            <strong id="resSavings">0.00 zł</strong>
+        </div>
+        <p class="info-text" id="summaryText"></p>
+    </div>
+</div>
+
+<script>
+    function calculate() {
+        // Pobieranie wartości z formularza
+        const pPetrol = parseFloat(document.getElementById('pricePetrol').value);
+        const pLpg = parseFloat(document.getElementById('priceLpg').value);
+        const cPetrol = parseFloat(document.getElementById('consPetrol').value);
+        const cLpg = parseFloat(document.getElementById('consLpg').value);
+        const dSwitch = parseFloat(document.getElementById('switchDist').value);
+        const dTrip = parseFloat(document.getElementById('tripDist').value);
+
+        // Walidacja
+        if (isNaN(pPetrol) || isNaN(pLpg) || isNaN(cPetrol) || isNaN(cLpg) || isNaN(dSwitch) || isNaN(dTrip)) {
+            alert("Proszę wypełnić wszystkie pola poprawnymi liczbami.");
+            return;
+        }
+
+        // Obliczenia dla samej benzyny
+        const costOnlyPetrol = (dTrip / 100) * cPetrol * pPetrol;
+
+        // Obliczenia dla systemu LPG (odpalanie na benzynie, potem gaz)
+        let costWithLpg = 0;
+        let petrolUsed = 0;
+        let lpgUsed = 0;
+
+        if (dTrip <= dSwitch) {
+            // Jeśli trasa jest krótsza niż dystans potrzebny na przełączenie, jedziemy tylko na benzynie
+            costWithLpg = (dTrip / 100) * cPetrol * pPetrol;
+            petrolUsed = (dTrip / 100) * cPetrol;
+        } else {
+            // Część trasy na benzynie (do rozgrzania)
+            const costPetrolPart = (dSwitch / 100) * cPetrol * pPetrol;
+            petrolUsed = (dSwitch / 100) * cPetrol;
+            
+            // Reszta trasy na gazie
+            const lpgDistance = dTrip - dSwitch;
+            const costLpgPart = (lpgDistance / 100) * cLpg * pLpg;
+            lpgUsed = (lpgDistance / 100) * cLpg;
+            
+            costWithLpg = costPetrolPart + costLpgPart;
+        }
+
+        const savings = costOnlyPetrol - costWithLpg;
+
+        // Aktualizacja UI
+        document.getElementById('resPetrol').innerText = costOnlyPetrol.toFixed(2) + ' zł';
+        document.getElementById('resLpg').innerText = costWithLpg.toFixed(2) + ' zł';
+        document.getElementById('resSavings').innerText = savings.toFixed(2) + ' zł';
+
+        let summary = "";
+        if (dTrip <= dSwitch) {
+            summary = "Trasa jest zbyt krótka, aby silnik przełączył się na gaz. Cały dystans pokonujesz na benzynie.";
+        } else if (savings > 0) {
+            summary = `Jadąc na gazie na dystansie ${dTrip} km, zużyjesz ok. ${petrolUsed.toFixed(1)} l benzyny na rozruch oraz ${lpgUsed.toFixed(1)} l gazu.`;
+        } else {
+            summary = "Przy tych ustawieniach jazda na gazie nie przynosi oszczędności.";
+        }
+        
+        document.getElementById('summaryText').innerText = summary;
+        document.getElementById('resultsArea').style.display = 'block';
+    }
+</script>
+
+</body>
+</html>
